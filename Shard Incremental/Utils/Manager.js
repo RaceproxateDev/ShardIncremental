@@ -6,7 +6,12 @@ function resetStats(limit, start) {
 
 function resetBuyables(limit, start) {
     for (let i = start; i < limit; i++) {
-        Data.Buyables[i] = Template.Buyables[i]
+        Data.Buyables[i] = {
+            amount: new OmegaNum(Template.Buyables[i].amount),
+            max: new OmegaNum(Template.Buyables[i].max),
+            price: new OmegaNum(Template.Buyables[i].price),
+            scale: new OmegaNum(Template.Buyables[i].scale)
+        };
     }
 }
 
