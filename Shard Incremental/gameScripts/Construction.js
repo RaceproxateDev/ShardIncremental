@@ -34,8 +34,8 @@ function calcConstructionStorage() {
 
 function constructReset(force) {
     if (Data.shards.gte(1000)) {
-        resetBuyables(3, 1)
         resetStats(2, 1)
+        resetBuyables(3, 1)
         
         if (!force) {
             Data.constructionPoints = Data.constructionPoints.add(Data.constructionStorage)
