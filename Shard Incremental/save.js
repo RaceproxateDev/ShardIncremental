@@ -20,7 +20,7 @@ var Data = {
         },
         
         3: {
-            ItsOnReset: "construction", // visual only
+            // ItsOnReset: "construction"
             amount: new OmegaNum(0),
             max: new OmegaNum(100),
             price: new OmegaNum(1),
@@ -28,7 +28,7 @@ var Data = {
         },
 
         4: {
-            ItsOnReset: "construction", // visual only
+            //ItsOnReset: "construction"
             amount: new OmegaNum(0),
             max: new OmegaNum(100),
             price: new OmegaNum(5),
@@ -109,7 +109,9 @@ function load() {
 
 function resetData() {
     if (confirm("Are you sure you want to reset your data?")) {
-        Data = Template
+        preventSave = true
+        localStorage.removeItem("contentData")
+        location.reload()
     }
 }
 

@@ -5,10 +5,8 @@ function resetStats(limit, start) {
 }
 
 function resetBuyables(limit, start) {
-    let buyables = Data.Buyables
-
     for (let i = start; i < limit; i++) {
-        buyables[i] = Template.Buyables[i]
+        Data.Buyables[i] = Template.Buyables[i]
     }
 }
 
