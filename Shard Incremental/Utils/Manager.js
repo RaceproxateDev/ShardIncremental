@@ -6,10 +6,7 @@ function resetStats(limit, start) {
 
 function resetBuyables(limit, start) {
     for (let i = start; i < limit; i++) {
-        Data.Buyables[i].amount = Template.Buyables[i].amount
-        Data.Buyables[i].price = Template.Buyables[i].price
-        Data.Buyables[i].max = Template.Buyables[i].max
-        Data.Buyables[i].scale = Template.Buyables[i].scale
+        Data.Buyables[i] = Template.Buyables[i]
     }
 }
 
