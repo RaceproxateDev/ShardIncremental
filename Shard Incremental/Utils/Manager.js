@@ -1,12 +1,15 @@
 function resetStats(limit, start) {
     for (let i = start; i < limit; i++) {
-        Data[i] = Template[i]
+        Data[Object.keys(Data)[i]] = Template[Object.keys(Template)[i]]
     }
 }
 
 function resetBuyables(limit, start) {
     for (let i = start; i < limit; i++) {
-        Data.Buyables[i] = Template.Buyables[i]
+        Data.Buyables[i].amount = Template.Buyables[i].amount
+        Data.Buyables[i].price = Template.Buyables[i].price
+        Data.Buyables[i].max = Template.Buyables[i].max
+        Data.Buyables[i].scale = Template.Buyables[i].scale
     }
 }
 
