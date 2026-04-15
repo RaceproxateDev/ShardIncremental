@@ -6,7 +6,7 @@ function resetStats(limit, start) {
 
 function resetBuyables(limit, start) {
     for (let i = start; i < limit; i++) {
-        Data.Buyables[i] = JSON.parse(JSON.stringify(Template.Buyables[i]))
+        Data.Buyables[i] = Template.Buyables[i]
     }
 }
 
