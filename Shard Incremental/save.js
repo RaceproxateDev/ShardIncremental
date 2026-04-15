@@ -1,3 +1,5 @@
+let preventSave = false
+
 var Data = {
     shards: new OmegaNum(0), shardMult: new OmegaNum(1),
     constructionPoints: new OmegaNum(0), constructionMult: new OmegaNum(1), constructionStorage: new OmegaNum(0),
@@ -57,7 +59,7 @@ var Template = {
         },
 
         3: {
-            ItsOnReset: "construction", // visual only
+            // ItsOnReset: "construction"
             amount: new OmegaNum(0),
             max: new OmegaNum(100),
             price: new OmegaNum(1),
@@ -65,7 +67,7 @@ var Template = {
         },
 
         4: {
-            ItsOnReset: "construction", // visual only
+            // ItsOnReset: "construction"
             amount: new OmegaNum(0),
             max: new OmegaNum(100),
             price: new OmegaNum(5),
@@ -77,7 +79,9 @@ var Template = {
 }
 
 function save() {
-    localStorage.setItem("contentData", btoa(unescape(encodeURIComponent(JSON.stringify(Data)))))
+   if (!preventSave) {
+     localStorage.setItem("contentData", btoa(unescape(encodeURIComponent(JSON.stringify(Data)))))
+   }
 }
 
 function fixSave(data, template) {
@@ -100,6 +104,12 @@ function load() {
         
         fixSave(parsed, Template)
         Data = parsed
+    }
+}
+
+function resetData() {
+    if (confirm("Are you sure you want to reset your data?")) {
+        Data = Template
     }
 }
 

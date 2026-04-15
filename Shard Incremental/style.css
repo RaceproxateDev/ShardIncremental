@@ -16,6 +16,12 @@ button {
     scroll-behavior: auto;
 }
 
+#Settings {
+    border: 1px solid white;
+    text-align: center;
+    background-color: black;
+}
+
 #content1 {
     border: 1px solid white;
     text-align: center;
@@ -29,4 +35,10 @@ button {
     width: 500px;
     transform: translate(510px, -517px);
     background-color: black;
+}
+
+.ResetDataBtn {
+    background-color: red;
+    color: white;
+    border: 3px solid darkred;
 }
