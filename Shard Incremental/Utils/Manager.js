@@ -1,6 +1,6 @@
 function resetStats(limit, start) {
     for (let i = start; i < limit; i++) {
-        Data[Object.keys(Template)[i]] = Template[Object.keys(Template)[i]]
+        Data[i] = Template[i]
     }
 }
 
