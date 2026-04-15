@@ -37,7 +37,7 @@ function constructReset(force) {
         resetStats(2,0)
         resetBuyables(3, 0)
         
-        if (force === false) {
+        if (!force) {
             Data.constructionPoints = Data.constructionPoints.add(Data.constructionStorage)
         } 
         
