@@ -5,6 +5,7 @@ let destructionDisplay = document.getElementById("DestructionDisplayTxt");
 
 // Destruction milestones
 let DestructionMilestone1 = document.getElementById("DestructionMilestone1");
+let DestructionMilestone2 = document.getElementById("DestructionMilestone2");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -34,6 +35,7 @@ function updateHtmlDestruction() {
     destructionDisplay.innerHTML = `You made <b>${format(Data.Destructions)}</b> ${Data.Destructions.eq(1) ? "Destruction" : "Destructions"}`;
 
     DestructionMilestone1.style.backgroundColor = (Data.Destructions.gte(1)) ? "green" : "black";
+    DestructionMilestone2.style.backgroundColor = (Data.Destructions.gte(2)) ? "green" : "black";
 }
 
 setInterval(() => {
