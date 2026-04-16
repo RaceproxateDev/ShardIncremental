@@ -26,6 +26,7 @@ function updateHtmlDestruction() {
     }
 
     reqTxt.innerHTML = `You need <b>${format(Data.DestructionReq)}</b> construction points`;
+    btn.innerHTML = (Data.constructionPoints.gte(Data.DestructionReq)) ? "Destroy" : "Meet the requeriments";
 }
 
 setInterval(() => {
