@@ -1,6 +1,7 @@
 let btn = document.getElementById("DestructionResetBtn");
 let reqTxt = document.getElementById("DestroyReqTxt");
 let content3 = document.getElementById("content3");
+let destructionDisplay = document.getElementById("DestructionDisplayTxt");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -27,6 +28,7 @@ function updateHtmlDestruction() {
 
     reqTxt.innerHTML = `You need <b>${format(Data.DestructionReq)}</b> construction points`;
     btn.innerHTML = (Data.constructionPoints.gte(Data.DestructionReq)) ? "Destroy" : "Meet the requeriments";
+    destructionDisplay.innerHTML = `You made <b>${format(Data.Destructions)}</b> ${Data.Destructions.eq(1) ? "Destruction" : "Destructions"}`;
 }
 
 setInterval(() => {
