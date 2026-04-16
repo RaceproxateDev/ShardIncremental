@@ -59,3 +59,4 @@ setInterval(function() {
     updateHtml()
     calcConstructionStorage()
     calcConstructionMult()
+}, 100)
