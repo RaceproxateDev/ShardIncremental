@@ -1,5 +1,6 @@
 let btn = document.getElementById("DestructionResetBtn");
-let reqTxt = document
+let reqTxt = document.getElementById("DestroyReqTxt");
+let content3 = document.getElementById("content3");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -18,4 +19,13 @@ function DestructionReset(force) {
 }
 
 function updateHtmlDestruction() {
+    if (Data.constructionPoints.gte(10) || hasContent("destruction")) {
+        content3.style.display = "block";
+    } else {
+        content3.style.display = "none";
+    }
 }
+
+setInterval(() => {
+    updateHtmlDestruction()
+}, 100);
