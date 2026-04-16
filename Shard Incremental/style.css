@@ -37,6 +37,15 @@ button {
     background-color: black;
 }
 
+#content3 {
+    border: 1px solid red;
+    text-align: center;
+    width: 500px;
+    transform: translate(1025px, -1263px);
+    background-color: black;
+}
+
+
 .ResetDataBtn {
     background-color: red;
     color: white;

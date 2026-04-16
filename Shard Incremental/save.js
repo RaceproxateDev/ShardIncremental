@@ -3,6 +3,7 @@ let preventSave = false
 var Data = {
     shards: new OmegaNum(0), shardMult: new OmegaNum(1),
     constructionPoints: new OmegaNum(0), constructionMult: new OmegaNum(1), constructionStorage: new OmegaNum(0),
+    Destructions: new OmegaNum(0), DestructionReq: new OmegaNum(10), DestructionScale: new OmegaNum(2.5), DestructionUnlocked: false,
 
     Buyables: {
         1: {
@@ -42,6 +43,7 @@ var Data = {
 var Template = {
     shards: new OmegaNum(0), shardMult: new OmegaNum(1),
     constructionPoints: new OmegaNum(0), constructionMult: new OmegaNum(1), constructionStorage: new OmegaNum(0),
+    Destructions: new OmegaNum(0), DestructionReq: new OmegaNum(10), DestructionScale: new OmegaNum(2.5), DestructionUnlocked: false,
 
     Buyables: {
         1: {
