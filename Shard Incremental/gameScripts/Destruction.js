@@ -24,6 +24,8 @@ function updateHtmlDestruction() {
     } else {
         content3.style.display = "none";
     }
+
+    reqTxt.innerHTML = `You need <b>${format(Data.DestructionReq)}</b> construction points`;
 }
 
 setInterval(() => {
