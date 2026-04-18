@@ -16,6 +16,7 @@ let DestructionMilestone6 = document.getElementById("DestructionMilestone6");
 let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
 let DestructionMilestone8 = document.getElementById("DestructionMilestone8");
 let DestructionMilestone9 = document.getElementById("DestructionMilestone9");
+let DestructionMilestone10 = document.getElementById("DestructionMilestone10");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -52,6 +53,8 @@ function updateHtmlDestruction() {
     DestructionMilestone7.style.backgroundColor = (Data.Destructions.gte(8)) ? "green" : "black";
     DestructionMilestone8.style.backgroundColor = (Data.Destructions.gte(9)) ? "green" : "black";
     DestructionMilestone9.style.backgroundColor = (Data.Destructions.gte(10)) ? "green" : "black";
+    DestructionMilestone10.style.backgroundColor = (Data.Destructions.gte(11)) ? "green" : "black";
+
 }
 
 function Autobuy() {
@@ -89,6 +92,7 @@ function CalcConstructionEnergyMult() {
 function passiveConstructionPointGain() {
     let p = new OmegaNum(0);
     if (Data.Destructions.gte(10)) p = p.add(0.01);
+    if (Data.Destructions.gte(11)) p = p.add(0.99);
 
     if (Data.Destructions.gte(10)) {
         Data.constructionPoints = Data.constructionPoints.add(Data.constructionStorage.mul(p));

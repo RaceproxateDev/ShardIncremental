@@ -53,7 +53,7 @@ function calcConstructionMult() {
     if (Data.Destructions.gte(1)) mult = OmegaNum.times(mult, 1.5)
     if (Data.Destructions.gte(3)) mult = OmegaNum.times(mult, 1.25)
     if (Data.Destructions.gte(5)) mult = OmegaNum.times(mult, 2.5)
-    if (Data.ConstructionEnergy.gte(1000))mult = OmegaNum.times(mult, calcConstructionPointCEBoost())
+    if (Data.ConstructionEnergy.gte(1000)) mult = OmegaNum.times(mult, calcConstructionPointCEBoost())
 
     Data.constructionMult = mult
     return mult

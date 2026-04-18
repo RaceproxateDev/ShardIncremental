@@ -29,7 +29,8 @@ function calcShardMult() {
     if (Data.Destructions.gte(1)) mult = OmegaNum.times(mult, 2)
     if (Data.Destructions.gte(2)) mult = OmegaNum.times(mult, OmegaNum.pow(1.5, Data.Destructions.div(2)))
     if (Data.Destructions.gte(3)) mult = OmegaNum.times(mult, 4)
-    mult = OmegaNum.times(mult, calcShardCEBoost())
+    if (Data.ConstructionEnergy.gte(1)) mult = OmegaNum.times(mult, calcShardCEBoost())
+    if (Data.Destructions.gte(11)) mult = OmegaNum.times(mult, 10)
 
     Data.shardMult = mult
     return mult
