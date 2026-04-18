@@ -1,6 +1,5 @@
 let btn = document.getElementById("DestructionResetBtn");
 let reqTxt = document.getElementById("DestroyReqTxt");
-let content3 = document.getElementById("content3");
 let destructionDisplay = document.getElementById("DestructionDisplayTxt");
 
 let constructionEnergyDisplay = document.getElementById("ConstructionEnergyDisplayTxt");
