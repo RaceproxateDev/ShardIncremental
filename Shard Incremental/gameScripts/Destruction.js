@@ -21,7 +21,7 @@ function DestructionReset(force) {
             Data.DestructionReq = Data.DestructionReq.mul(Data.DestructionScale);
         }
 
-        resetStats(5, 0)
+        resetStats(5, 0);
         resetBuyables(5, 1);
 
         if (!hasContent("destruction")) {
