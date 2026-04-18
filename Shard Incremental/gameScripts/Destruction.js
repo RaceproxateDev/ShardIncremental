@@ -4,6 +4,7 @@ let destructionDisplay = document.getElementById("DestructionDisplayTxt");
 
 let constructionEnergyDisplay = document.getElementById("ConstructionEnergyDisplayTxt");
 let constructionEnergyFirstBoost = document.getElementById("ConstructionEnergyFirstBoost");
+let constructionEnergySecondBoost = document.getElementById("ConstructionEnergySecondBoost");
 
 // Destruction milestones
 let DestructionMilestone1 = document.getElementById("DestructionMilestone1");
@@ -39,6 +40,8 @@ function updateHtmlDestruction() {
     constructionEnergyDisplay.innerHTML = `You have <b>${format(Data.ConstructionEnergy)}</b> ${OmegaNum.eq(Data.ConstructionEnergy, 1) ? "Construction Energy" : "Construction Energy"}`;
 
     constructionEnergyFirstBoost.innerHTML = `<b>${format(calcShardCEBoost())}</b>x Shards`;
+    constructionEnergySecondBoost.style.display = (Data.ConstructionEnergy.gte(1000)) ? "block" : "none";
+    constructionEnergySecondBoost.innerHTML = `<b>${format(calcConstructionPointCEBoost())}</b>x Construction Points`;
 
     DestructionMilestone1.style.backgroundColor = (Data.Destructions.gte(1)) ? "green" : "black";
     DestructionMilestone2.style.backgroundColor = (Data.Destructions.gte(2)) ? "green" : "black";
@@ -99,6 +102,12 @@ function passiveConstructionPointGain() {
 function calcShardCEBoost() {
     let exp = new OmegaNum(0.1);
     
+    return Data.ConstructionEnergy.pow(exp);
+}
+
+function calcConstructionPointCEBoost() {
+    let exp = new OmegaNum(0.05);
+
     return Data.ConstructionEnergy.pow(exp);
 }
 
