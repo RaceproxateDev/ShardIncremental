@@ -83,6 +83,17 @@ function CalcConstructionEnergyMult() {
     return mult;
 }
 
+function passiveConstructionPointGain() {
+    let p = new OmegaNum(0);
+    if (Data.Destructions.gte(10)) p = p.add(0.01);
+
+    if (Data.Destructions.gte(10)) {
+        Data.constructionPoints = Data.constructionPoints.add(Data.constructionStorage.mul(p));
+    }
+
+    return p;
+}
+
 // Construction Energy boosts
 
 function calcShardCEBoost() {
@@ -100,4 +111,5 @@ setInterval(() => {
 
 setInterval(() => {
     CanGenConstructionEnergy();
+    passiveConstructionPointGain();
 }, 1000);
