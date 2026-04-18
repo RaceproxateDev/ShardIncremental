@@ -32,12 +32,6 @@ function DestructionReset(force) {
 }
 
 function updateHtmlDestruction() {
-    if (Data.constructionPoints.gte(10) || hasContent("destruction")) {
-        content3.style.display = "block";
-    } else {
-        content3.style.display = "none";
-    }
-
     reqTxt.innerHTML = `You need <b>${format(Data.DestructionReq)}</b> construction points`;
     btn.innerHTML = (Data.constructionPoints.gte(Data.DestructionReq)) ? "Destroy" : "Meet the requeriments";
     destructionDisplay.innerHTML = `You made <b>${format(Data.Destructions)}</b> ${Data.Destructions.eq(1) ? "Destruction" : "Destructions"}`;
