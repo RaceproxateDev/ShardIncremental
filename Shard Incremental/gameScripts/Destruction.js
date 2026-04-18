@@ -44,14 +44,19 @@ function updateHtmlDestruction() {
     DestructionMilestone5.style.backgroundColor = (Data.Destructions.gte(5)) ? "green" : "black";
 }
 
-function AutobuyShardUpgs() {
+function Autobuy() {
     if (Data.Destructions.gte(4)) {
         buyUpg(1, "shards");
         buyUpg(2, "shards");
     }
-} 
+
+    if (Data.Destructions.gte(7)) {
+        buyUpg(3, "constructionPoints");
+        buyUpg(4, "constructionPoints");
+    }
+}
 
 setInterval(() => {
     updateHtmlDestruction()
-    AutobuyShardUpgs();
+    Autobuy();
 }, 100);
