@@ -4,9 +4,9 @@ let content3_1 = document.getElementById("content3_1")
 
 function Unlock() {
     if (Data.shards.gte(1000) || hasContent("construction")) {
-        construction.style.display = "block"
+        content2.style.display = "block"
     } else {
-        construction.style.display = "none"
+        content2.style.display = "none"
     }
 
     if (Data.constructionPoints.gte(10) || hasContent("destruction")) {
