@@ -9,6 +9,8 @@ let DestructionMilestone2 = document.getElementById("DestructionMilestone2");
 let DestructionMilestone3 = document.getElementById("DestructionMilestone3");
 let DestructionMilestone4 = document.getElementById("DestructionMilestone4");
 let DestructionMilestone5 = document.getElementById("DestructionMilestone5");
+let DestructionMilestone6 = document.getElementById("DestructionMilestone6");
+let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -42,6 +44,8 @@ function updateHtmlDestruction() {
     DestructionMilestone3.style.backgroundColor = (Data.Destructions.gte(3)) ? "green" : "black";
     DestructionMilestone4.style.backgroundColor = (Data.Destructions.gte(4)) ? "green" : "black";
     DestructionMilestone5.style.backgroundColor = (Data.Destructions.gte(5)) ? "green" : "black";
+    DestructionMilestone6.style.backgroundColor = (Data.Destructions.gte(7)) ? "green" : "black";
+    DestructionMilestone7.style.backgroundColor = (Data.Destructions.gte(8)) ? "green" : "black";
 }
 
 function Autobuy() {
@@ -56,7 +60,19 @@ function Autobuy() {
     }
 }
 
+function CanGenConstructionEnergy() {
+    let can = false;
+    if (Data.Destructions.gte(8)) can = true;
+
+    if (can) {
+        Data.ConstructionEnergy = Data.ConstructionEnergy.add(Data.ConstructionEnergyMult);
+    }
+
+    return can;
+}
+
 setInterval(() => {
     updateHtmlDestruction()
     Autobuy();
+    CanGenConstructionEnergy();
 }, 100);
