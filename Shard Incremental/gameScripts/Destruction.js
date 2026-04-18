@@ -3,6 +3,9 @@ let reqTxt = document.getElementById("DestroyReqTxt");
 let content3 = document.getElementById("content3");
 let destructionDisplay = document.getElementById("DestructionDisplayTxt");
 
+let constructionEnergyDisplay = document.getElementById("ConstructionEnergyDisplayTxt");
+let constructionEnergyFirstBoost = document.getElementById("ConstructionEnergyFirstBoost");
+
 // Destruction milestones
 let DestructionMilestone1 = document.getElementById("DestructionMilestone1");
 let DestructionMilestone2 = document.getElementById("DestructionMilestone2");
@@ -38,6 +41,9 @@ function updateHtmlDestruction() {
     reqTxt.innerHTML = `You need <b>${format(Data.DestructionReq)}</b> construction points`;
     btn.innerHTML = (Data.constructionPoints.gte(Data.DestructionReq)) ? "Destroy" : "Meet the requeriments";
     destructionDisplay.innerHTML = `You made <b>${format(Data.Destructions)}</b> ${Data.Destructions.eq(1) ? "Destruction" : "Destructions"}`;
+    constructionEnergyDisplay.innerHTML = `You have <b>${format(Data.ConstructionEnergy)}</b> ${OmegaNum.eq(Data.ConstructionEnergy, 1) ? "Construction Energy" : "Construction Energy"}`;
+
+    constructionEnergyFirstBoost.innerHTML = `<b>${format(calcShardCEBoost())}</b>x Shards`;
 
     DestructionMilestone1.style.backgroundColor = (Data.Destructions.gte(1)) ? "green" : "black";
     DestructionMilestone2.style.backgroundColor = (Data.Destructions.gte(2)) ? "green" : "black";
@@ -71,8 +77,19 @@ function CanGenConstructionEnergy() {
     return can;
 }
 
+function calcShardCEBoost() {
+    let exp = new OmegaNum(0.01);
+    let base = new OmegaNum(1);
+    
+    return base.add(Data.ConstructionEnergy.pow(exp));
+}
+
 setInterval(() => {
     updateHtmlDestruction()
     Autobuy();
-    CanGenConstructionEnergy();
+    calcShardCEBoost();
 }, 100);
+
+setInterval(() => {
+    CanGenConstructionEnergy();
+}, 1000);
