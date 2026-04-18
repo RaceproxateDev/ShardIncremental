@@ -13,6 +13,8 @@ let DestructionMilestone4 = document.getElementById("DestructionMilestone4");
 let DestructionMilestone5 = document.getElementById("DestructionMilestone5");
 let DestructionMilestone6 = document.getElementById("DestructionMilestone6");
 let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
+let DestructionMilestone8 = document.getElementById("DestructionMilestone8");
+let DestructionMilestone9 = document.getElementById("DestructionMilestone9");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -45,6 +47,8 @@ function updateHtmlDestruction() {
     DestructionMilestone5.style.backgroundColor = (Data.Destructions.gte(5)) ? "green" : "black";
     DestructionMilestone6.style.backgroundColor = (Data.Destructions.gte(7)) ? "green" : "black";
     DestructionMilestone7.style.backgroundColor = (Data.Destructions.gte(8)) ? "green" : "black";
+    DestructionMilestone8.style.backgroundColor = (Data.Destructions.gte(9)) ? "green" : "black";
+    DestructionMilestone9.style.backgroundColor = (Data.Destructions.gte(10)) ? "green" : "black";
 }
 
 function Autobuy() {
@@ -70,8 +74,19 @@ function CanGenConstructionEnergy() {
     return can;
 }
 
+function CalcConstructionEnergyMult() {
+    let mult = new OmegaNum(1);
+    if (Data.Destructions.gte(9)) mult = mult.mul(3);
+    if (Data.Destructions.gte(10)) mult = mult.mul(5);
+
+    Data.ConstructionEnergyMult = mult;
+    return mult;
+}
+
+// Construction Energy boosts
+
 function calcShardCEBoost() {
-    let exp = new OmegaNum(0.01);
+    let exp = new OmegaNum(0.1);
     
     return Data.ConstructionEnergy.pow(exp);
 }
@@ -80,6 +95,7 @@ setInterval(() => {
     updateHtmlDestruction()
     Autobuy();
     calcShardCEBoost();
+    CalcConstructionEnergyMult();
 }, 100);
 
 setInterval(() => {
