@@ -1,4 +1,4 @@
-let content2 = document.getElementById("content2")
+let content2 = document.getElementById("2")
 let content3 = document.getElementById("content3")
 let content3_1 = document.getElementById("content3_1")
 
