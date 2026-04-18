@@ -52,6 +52,7 @@ function calcConstructionMult() {
     mult = OmegaNum.times(mult, OmegaNum.add(Data.Buyables[4].amount, 1))
     if (Data.Destructions.gte(1)) mult = OmegaNum.times(mult, 1.5)
     if (Data.Destructions.gte(3)) mult = OmegaNum.times(mult, 1.25)
+    if (Data.Destructions.gte(5)) mult = OmegaNum.times(mult, 2.5)
 
     Data.constructionMult = mult
     return mult

@@ -7,6 +7,8 @@ let destructionDisplay = document.getElementById("DestructionDisplayTxt");
 let DestructionMilestone1 = document.getElementById("DestructionMilestone1");
 let DestructionMilestone2 = document.getElementById("DestructionMilestone2");
 let DestructionMilestone3 = document.getElementById("DestructionMilestone3");
+let DestructionMilestone4 = document.getElementById("DestructionMilestone4");
+let DestructionMilestone5 = document.getElementById("DestructionMilestone5");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -38,8 +40,18 @@ function updateHtmlDestruction() {
     DestructionMilestone1.style.backgroundColor = (Data.Destructions.gte(1)) ? "green" : "black";
     DestructionMilestone2.style.backgroundColor = (Data.Destructions.gte(2)) ? "green" : "black";
     DestructionMilestone3.style.backgroundColor = (Data.Destructions.gte(3)) ? "green" : "black";
+    DestructionMilestone4.style.backgroundColor = (Data.Destructions.gte(4)) ? "green" : "black";
+    DestructionMilestone5.style.backgroundColor = (Data.Destructions.gte(5)) ? "green" : "black";
 }
+
+function AutobuyShardUpgs() {
+    if (Data.Destructions.gte(4)) {
+        buyUpg(1, "shards");
+        buyUpg(2, "shards");
+    }
+} 
 
 setInterval(() => {
     updateHtmlDestruction()
+    AutobuyShardUpgs();
 }, 100);
