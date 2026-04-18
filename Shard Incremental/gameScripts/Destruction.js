@@ -72,9 +72,8 @@ function CanGenConstructionEnergy() {
 
 function calcShardCEBoost() {
     let exp = new OmegaNum(0.01);
-    let base = new OmegaNum(1);
     
-    return base.add(Data.ConstructionEnergy.pow(exp));
+    return Data.ConstructionEnergy.pow(exp);
 }
 
 setInterval(() => {
