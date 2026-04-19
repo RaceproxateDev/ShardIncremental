@@ -1,25 +1,12 @@
 let content2 = document.getElementById("content2")
 let content3 = document.getElementById("content3")
 let content3_1 = document.getElementById("content3_1")
+let content4 = document.getElementById("content4")
 
 function Unlock() {
-    if (Data.shards.gte(1000) || hasContent("construction")) {
-        content2.style.display = "block"
-    } else {
-        content2.style.display = "none"
-    }
-
-    if (Data.constructionPoints.gte(10) || hasContent("destruction")) {
-        content3.style.display = "block"
-    } else {
-        content3.style.display = "none"
-    }
-
-    if (Data.Destructions.gte(8)) {
-        content3_1.style.display = "block"
-    } else {
-        content3_1.style.display = "none"
-    }
+    content2.style.display = (Data.shards.gte(1000) || hasContent("construction")) ? "block" : "none"
+    content3.style.display = (Data.constructionPoints.gte(10) || hasContent("destruction")) ? "block" : "none"
+    content4.style.display = (Data.Destructions.gte(15) || hasContent("restoration")) ? "block" : "none"
 }
 
 setInterval(function() {

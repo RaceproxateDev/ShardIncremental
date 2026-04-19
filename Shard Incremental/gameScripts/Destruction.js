@@ -17,6 +17,7 @@ let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
 let DestructionMilestone8 = document.getElementById("DestructionMilestone8");
 let DestructionMilestone9 = document.getElementById("DestructionMilestone9");
 let DestructionMilestone10 = document.getElementById("DestructionMilestone10");
+let DestructionMilestone11 = document.getElementById("DestructionMilestone11");
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
@@ -54,6 +55,7 @@ function updateHtmlDestruction() {
     DestructionMilestone8.style.backgroundColor = (Data.Destructions.gte(9)) ? "green" : "black";
     DestructionMilestone9.style.backgroundColor = (Data.Destructions.gte(10)) ? "green" : "black";
     DestructionMilestone10.style.backgroundColor = (Data.Destructions.gte(11)) ? "green" : "black";
+    DestructionMilestone11.style.backgroundColor = (Data.Destructions.gte(15)) ? "green" : "black";
 
 }
 
@@ -112,7 +114,7 @@ function calcShardCEBoost() {
 function calcConstructionPointCEBoost() {
     let exp = new OmegaNum(0.05);
 
-    return Data.ConstructionEnergy.pow(exp);
+    return Data.ConstructionEnergy.div(1000).pow(exp);
 }
 
 setInterval(() => {

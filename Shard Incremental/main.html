@@ -31,7 +31,7 @@
         </div>
 
         <div id="content2">
-            <h2 id="constructionDisplayTxt">You have <b>0</b> construction points</h2>
+            <h3 id="constructionDisplayTxt">You have <b>0</b> construction points</h3>
             <h2>Construct</h2>
             <h3>Construction will reset shards and shard upgrades</h3>
             <h3 id="constructionPointGainTxt">You will gain <b>0</b> construction points</h3>
@@ -98,12 +98,24 @@
                 <b>11 Destructions</b> <br><br>
                 Passively generate 100% of Construction Points instead of 1%, 10x Shards<br><br>
             </h3> <br>
+            <h3 class="Milestone" id="DestructionMilestone11" style="border-color: red; color: red;">
+                <b>15 Destructions</b> <br><br>
+                Unlock Restoration<br><br>
+            </h3> <br>
         </div>
 
         <div id="content3_1">
             <h3 id="ConstructionEnergyDisplayTxt" style="color: orange;">You have <b>0</b> Construction Energy</h3>
             <h3 id="ConstructionEnergyFirstBoost"><b>1.00x</b> Shards</h3>
             <h3 id="ConstructionEnergySecondBoost"><b>1.00x</b> Construction Points</h3>
+        </div>
+
+        <div id="content4">
+            <h3 id="RestorationDisplayTxt" style="color: rgb(168, 168, 246);">You have <b>0</b> Restoration Points</h3>
+            <h2 style="color: rgb(168, 168, 246);">Restore</h2>
+            <h3 style="color: rgb(168, 168, 246);">Restoration will reset everything below this point</h3>
+            <h3 id="RestorationGainTxt" style="color: rgb(168, 168, 246);">You will gain <b>0</b> Restoration Points</h3>
+            <button id="RestorationResetBtn" style="border: 1px solid rgb(168, 168, 246); background-color: black; color: rgb(168, 168, 246);" onclick="RestorationReset(false)">Restore</button> <br><br>
         </div>
     </body>
 
@@ -115,5 +127,6 @@
     <script src="Utils/Manager.js"></script>
     <script src="gameScripts/Construction.js"></script>
     <script src="gameScripts/Destruction.js"></script>
+    <script src="gameScripts/Restoration.js"></script>
     <script src="gameScripts/UnlockContent.js"></script>
 </html>

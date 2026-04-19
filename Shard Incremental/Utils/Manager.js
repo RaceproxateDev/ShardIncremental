@@ -15,12 +15,6 @@ function resetBuyables(limit, start) {
     }
 }
 
-function unlockContent(content) {
-    if (Data.Unlocks.includes(content)) return;
-
-    Data.Unlocks.push(content)
-}
-
 function hasContent(content) {
     return Data.Unlocks.includes(content)
 }

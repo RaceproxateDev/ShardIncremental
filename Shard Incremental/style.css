@@ -41,7 +41,7 @@ button {
     border: 1px solid red;
     text-align: center;
     width: 500px;
-    transform: translate(1020px, -1264px);
+    transform: translate(1020px, -1256px);
     background-color: black;
 }
 
@@ -49,6 +49,15 @@ button {
     border: 1px solid rgb(255, 174, 0);
     text-align: center;
     width: 500px;
+    transform: translate(1020px, -1250px);
+    background-color: black;
+}
+
+#content4 {
+    border: 1px solid rgb(168, 168, 246);
+    text-align: center;
+    width: 500px;
+    position: fixed;
     transform: translate(1020px, -1250px);
     background-color: black;
 }
