@@ -6,6 +6,7 @@ let content4 = document.getElementById("content4")
 function Unlock() {
     content2.style.display = (Data.shards.gte(1000) || hasContent("construction")) ? "block" : "none"
     content3.style.display = (Data.constructionPoints.gte(10) || hasContent("destruction")) ? "block" : "none"
+    content3_1.style.display = (Data.Destructions.gte(8)) ? "block" : "none"
     content4.style.display = (Data.Destructions.gte(15) || hasContent("restoration")) ? "block" : "none"
 }
 
