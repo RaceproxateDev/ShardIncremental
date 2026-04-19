@@ -37,6 +37,14 @@ var Data = {
             price: new OmegaNum(5),
             scale: new OmegaNum(5),
         },
+
+        5: {
+            // ItsOnReset: "restoration"
+            amount: new OmegaNum(0),
+            max: new OmegaNum(100),
+            price: new OmegaNum(1),
+            scale: new OmegaNum(4),
+        },
     },
 
     Unlocks: [],
@@ -79,6 +87,14 @@ var Template = {
             price: new OmegaNum(5),
             scale: new OmegaNum(5),
         },
+
+        5: {
+            // ItsOnReset: "restoration"
+            amount: new OmegaNum(0),
+            max: new OmegaNum(100),
+            price: new OmegaNum(1),
+            scale: new OmegaNum(4),
+        }
     },
 
     Unlocks: [],

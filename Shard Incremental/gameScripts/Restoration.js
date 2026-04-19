@@ -2,6 +2,9 @@ let CalcRestorationGainTxt = document.getElementById("RestorationGainTxt");
 let RestorationDisplayTxt = document.getElementById("RestorationDisplayTxt");
 let RestorationBtn = document.getElementById("RestorationResetBtn");
 
+let RestorationBuyable1LvlTxt = document.getElementById("RestorationBuyable1LvlTxt");
+let RestorationBuyable1Btn = document.getElementById("RestorationBuyable1Btn");
+
 function CalcRestorationGain() {
     let exp = 0.2;
     let exp2 = 0.5;
@@ -28,6 +31,9 @@ function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
     CalcRestorationGainTxt.innerHTML = "You will gain <b>" + format(Data.RestorationStorage) + "</b>" + (Data.RestorationStorage.eq(1) ? " Restoration Point" : " Restoration Points");
     RestorationBtn.innerHTML = (Data.RestorationStorage.gte(1) ? "Restore" : "Get atleast 15 Destructions and 8,000 Construction Energy to restore");
+
+    RestorationBuyable1LvlTxt.innerHTML = `Level: <b>${format(Data.Buyables[5].amount)}</b> / <b>${format(Data.Buyables[5].max)}</b>`
+    RestorationBuyable1Btn.innerHTML = "Cost: <b>" + format(Data.Buyables[5].price) + "</b> Restoration Points"
 }
 
 setInterval(function() {
