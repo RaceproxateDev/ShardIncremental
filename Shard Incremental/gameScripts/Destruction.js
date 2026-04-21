@@ -86,7 +86,7 @@ function CalcConstructionEnergyMult() {
     let mult = new OmegaNum(1);
     if (Data.Destructions.gte(9)) mult = mult.mul(3);
     if (Data.Destructions.gte(10)) mult = mult.mul(5);
-    mult = mult.mul(mult, OmegaNum.pow(2, Data.Buyables[5].amount));
+    mult = mult.times(mult, OmegaNum.pow(2, Data.Buyables[5].amount));
 
     Data.ConstructionEnergyMult = mult;
     return mult;

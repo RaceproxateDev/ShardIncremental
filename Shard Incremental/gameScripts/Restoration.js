@@ -32,7 +32,7 @@ function RestorationReset(force) {
 function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
     CalcRestorationGainTxt.innerHTML = "You will gain <b>" + format(Data.RestorationStorage) + "</b>" + (Data.RestorationStorage.eq(1) ? " Restoration Point" : " Restoration Points");
-    RestorationBtn.innerHTML = (Data.RestorationStorage.gte(1) ? "Restore" : "Get atleast 15 Destructions and 8,000 Construction Energy to restore");
+    RestorationBtn.innerHTML = (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(8000)) ? "Restore" : "Get atleast 15 Destructions and 8,000 Construction Energy to restore";
 
     RestorationBuyable1LvlTxt.innerHTML = `Level: <b>${format(Data.Buyables[5].amount)}</b> / <b>${format(Data.Buyables[5].max)}</b>`
     RestorationBuyable1Btn.innerHTML = "Cost: <b>" + format(Data.Buyables[5].price) + "</b> Restoration Points"
