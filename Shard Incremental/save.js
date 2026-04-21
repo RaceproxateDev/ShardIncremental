@@ -3,9 +3,9 @@ let preventSave = false
 var Data = {
     shards: new OmegaNum(0), shardMult: new OmegaNum(1),
     constructionPoints: new OmegaNum(0), constructionMult: new OmegaNum(1), constructionStorage: new OmegaNum(0),
-    Destructions: new OmegaNum(0), DestructionReq: new OmegaNum(10), DestructionScale: new OmegaNum(2.5), DestructionUnlocked: false,
+    Destructions: new OmegaNum(0), DestructionReq: new OmegaNum(10), DestructionScale: new OmegaNum(2.5),
     ConstructionEnergy: new OmegaNum(0), ConstructionEnergyMult: new OmegaNum(1),
-    RestorationPoints: new OmegaNum(0), RestorationMult: new OmegaNum(1), RestorationStorage: new OmegaNum(0), RestorationUnlocked: false,
+    RestorationPoints: new OmegaNum(0), RestorationMult: new OmegaNum(1), RestorationStorage: new OmegaNum(0),
 
     Buyables: {
         1: {
