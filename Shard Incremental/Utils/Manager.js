@@ -19,12 +19,15 @@ function hasContent(content) {
     return Data.Unlocks.includes(content)
 }
 
-function buyUpg(id, currency) {
+function buyUpg(id, currency, spend) {
     let upg = Data.Buyables[id]
     let cost = upg.price
 
     if (OmegaNum.gte(Data[currency], cost) && !OmegaNum.gte(upg.amount, upg.max)) {
-        Data[currency] = OmegaNum.sub(Data[currency], cost)
+        if (spend) {
+            Data[currency] = OmegaNum.sub(Data[currency], cost)
+        }
+        
         upg.amount = OmegaNum.add(upg.amount, 1)
         upg.price = OmegaNum.times(upg.price, upg.scale)
     }

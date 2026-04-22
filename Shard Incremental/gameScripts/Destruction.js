@@ -60,14 +60,17 @@ function updateHtmlDestruction() {
 }
 
 function Autobuy() {
+    let spend = true;
+    let ConstructionSpend = true;
+
     if (Data.Destructions.gte(4)) {
-        buyUpg(1, "shards");
-        buyUpg(2, "shards");
+        buyUpg(1, "shards", spend);
+        buyUpg(2, "shards", spend);
     }
 
     if (Data.Destructions.gte(7)) {
-        buyUpg(3, "constructionPoints");
-        buyUpg(4, "constructionPoints");
+        buyUpg(3, "constructionPoints", ConstructionSpend);
+        buyUpg(4, "constructionPoints", ConstructionSpend);
     }
 }
 
