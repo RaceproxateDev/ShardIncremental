@@ -87,8 +87,10 @@ function CanGenConstructionEnergy() {
 
 function CalcConstructionEnergyMult() {
     let mult = new OmegaNum(1);
+
     if (Data.Destructions.gte(9)) mult = mult.times(3);
     if (Data.Destructions.gte(10)) mult = mult.times(5);
+    
     mult = mult.times(mult, OmegaNum.pow(2, Data.Buyables[5].amount));
 
     Data.ConstructionEnergyMult = mult;
