@@ -56,6 +56,7 @@ var Data = {
     },
 
     Unlocks: [],
+    Upgrades: [],
 }
 
 var Template = {
@@ -114,6 +115,7 @@ var Template = {
     },
 
     Unlocks: [],
+    Upgrades: [],
 }
 
 function save() {

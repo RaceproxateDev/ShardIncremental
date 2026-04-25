@@ -32,3 +32,10 @@ function buyUpg(id, currency, spend) {
         upg.price = OmegaNum.times(upg.price, upg.scale)
     }
 }
+
+function buyOneTimeUpg(id, currency, cost) {
+    if (OmegaNum.gte(Data[currency], cost) && !Data.Upgrades.includes(id)) {
+        Data[currency] = OmegaNum.sub(Data[currency], cost)
+        Data.Upgrades.push(id);
+    }
+}
