@@ -122,10 +122,10 @@ function calcConstructionPointCEBoost() {
 }
 
 setInterval(() => {
-    updateHtmlDestruction()
+    updateHtmlDestruction();
+    CalcConstructionEnergyMult();
     Autobuy();
     calcShardCEBoost();
-    CalcConstructionEnergyMult();
 }, 100);
 
 setInterval(() => {
