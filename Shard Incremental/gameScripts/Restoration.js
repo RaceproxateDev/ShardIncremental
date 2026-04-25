@@ -20,12 +20,12 @@ function CalcRestorationGain() {
 
 function RestorationReset(force) {
     if (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(8000) && Data.RestorationStorage.gte(1)) {
+        resetStats(10, 0);
+        resetBuyables(5, 1);
+
         if (!force) {
             Data.RestorationPoints = OmegaNum.add(Data.RestorationPoints, Data.RestorationStorage);
         }
-
-        resetStats(10, 0);
-        resetBuyables(5, 1);
 
         if (!hasContent("restoration")) {
             Data.Unlocks.push("restoration");
