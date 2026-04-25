@@ -4,8 +4,12 @@ let RestorationBtn = document.getElementById("RestorationResetBtn");
 
 let RestorationBuyable1LvlTxt = document.getElementById("RestorationBuyable1LvlTxt");
 let RestorationBuyable1Btn = document.getElementById("RestorationBuyable1Btn");
+
 let RestorationBuyable2LvlTxt = document.getElementById("RestorationBuyable2LvlTxt");
 let RestorationBuyable2Btn = document.getElementById("RestorationBuyable2Btn");
+
+let RestorationBuyable3LvlTxt = document.getElementById("RestorationBuyable3LvlTxt");
+let RestorationBuyable3Btn = document.getElementById("RestorationBuyable3Btn");
 
 function CalcRestorationGain() {
     let exp = 0.2;
@@ -39,6 +43,9 @@ function UpdateRestorationDisplay() {
 
     RestorationBuyable2LvlTxt.innerHTML = `Level: <b>${format(Data.Buyables[6].amount)}</b> / <b>${format(Data.Buyables[6].max)}</b>`
     RestorationBuyable2Btn.innerHTML = "Cost: <b>" + format(Data.Buyables[6].price) + "</b> Restoration Points"
+
+    RestorationBuyable3LvlTxt.innerHTML = `Level: <b>${format(Data.Upgrades.includes(1) ? 1 : 0)}</b> / <b>1</b>`
+    RestorationBuyable3Btn.innerHTML = (Data.Upgrades.includes(1)) ? "Bought" : "Cost: <b>5</b> Restoration Points"
 }
 
 setInterval(function() {
