@@ -125,7 +125,7 @@ setInterval(() => {
     updateHtmlDestruction();
     Autobuy();
     calcShardCEBoost();
-    calcConstructionEnergyMult();
+    CalcConstructionEnergyMult();
 }, 100);
 
 setInterval(() => {
