@@ -63,6 +63,8 @@ function Autobuy() {
     let spend = true;
     let ConstructionSpend = true;
 
+    if (Data.Upgrades.includes(1)) spend = false;
+
     if (Data.Destructions.gte(4)) {
         buyUpg(1, "shards", spend);
         buyUpg(2, "shards", spend);
