@@ -11,28 +11,6 @@ let RestorationBuyable2Btn = document.getElementById("RestorationBuyable2Btn");
 let RestorationBuyable3LvlTxt = document.getElementById("RestorationBuyable3LvlTxt");
 let RestorationBuyable3Btn = document.getElementById("RestorationBuyable3Btn");
 
-function CalcRestorationGain() {
-    let exp = 0.2;
-    let exp2 = 0.5;
-
-    Data.RestorationStorage = Data.Destructions.div(15).pow(exp).mul(Data.ConstructionEnergy.div(8000).pow(exp2));
-}
-
-function RestorationReset(force) {
-    if (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(8000) && Data.RestorationStorage.gte(1)) {
-        resetStats(10, 0);
-        resetBuyables(5, 1);
-
-        if (!force) {
-            Data.RestorationPoints = OmegaNum.add(Data.RestorationPoints, Data.RestorationStorage);
-        }
-
-        if (!hasContent("restoration")) {
-            Data.Unlocks.push("restoration");
-        }
-    }
-}
-
 function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
     CalcRestorationGainTxt.innerHTML = "You will gain <b>" + format(Data.RestorationStorage) + "</b>" + (Data.RestorationStorage.eq(1) ? " Restoration Point" : " Restoration Points");
@@ -46,6 +24,28 @@ function UpdateRestorationDisplay() {
 
     RestorationBuyable3LvlTxt.innerHTML = `Level: <b>${format(Data.Upgrades.includes(1) ? 1 : 0)}</b> / <b>1</b>`
     RestorationBuyable3Btn.innerHTML = (Data.Upgrades.includes(1)) ? "Bought" : "Cost: <b>5</b> Restoration Points"
+}
+
+function CalcRestorationGain() {
+    let exp = 0.2;
+    let exp2 = 0.5;
+
+    Data.RestorationStorage = Data.Destructions.div(15).pow(exp).mul(Data.ConstructionEnergy.div(8000).pow(exp2));
+}
+
+function RestorationReset(force) {
+    if (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(8000)) {
+        resetStats(10, 0);
+        resetBuyables(5, 1);
+
+        if (!force) {
+            Data.RestorationPoints = Data.RestorationPoints.add(Data.RestorationStorage)
+        }
+
+        if (!hasContent("restoration")) {
+            Data.Unlocks.push("restoration");
+        }
+    }
 }
 
 setInterval(function() {
