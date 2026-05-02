@@ -30,7 +30,7 @@ function CalcRestorationGain() {
     let exp = 0.2;
     let exp2 = 0.5;
 
-    Data.RestorationStorage = Data.Destructions.div(15).pow(exp).mul(Data.ConstructionEnergy.div(8000).pow(exp2));
+    Data.RestorationStorage = Data.Destructions.div(15).pow(exp).mul(Data.ConstructionEnergy.div(8000).pow(exp2)).times(Data.RestorationMult);
 }
 
 function RestorationReset(force) {
