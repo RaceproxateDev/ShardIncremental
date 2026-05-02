@@ -39,7 +39,7 @@ function RestorationReset(force) {
         resetBuyables(5, 1);
 
         if (!force) {
-            Data.RestorationPoints = Data.RestorationPoints.add(Data.RestorationStorage)
+            Data.RestorationPoints = OmegaNum.add(Data.RestorationPoints, Data.RestorationStorage)
         }
 
         if (!hasContent("restoration")) {
