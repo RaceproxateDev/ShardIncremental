@@ -11,6 +11,9 @@ let RestorationBuyable2Btn = document.getElementById("RestorationBuyable2Btn");
 let RestorationBuyable3LvlTxt = document.getElementById("RestorationBuyable3LvlTxt");
 let RestorationBuyable3Btn = document.getElementById("RestorationBuyable3Btn");
 
+let RestorationBuyable4LvlTxt = document.getElementById("RestorationBuyable4LvlTxt");
+let RestorationBuyable4Btn = document.getElementById("RestorationBuyable4Btn");
+
 function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
     CalcRestorationGainTxt.innerHTML = "You will gain <b>" + format(Data.RestorationStorage) + "</b>" + (Data.RestorationStorage.eq(1) ? " Restoration Point" : " Restoration Points");
@@ -24,6 +27,9 @@ function UpdateRestorationDisplay() {
 
     RestorationBuyable3LvlTxt.innerHTML = `Level: <b>${format(Data.Upgrades.includes(1) ? 1 : 0)}</b> / <b>1</b>`
     RestorationBuyable3Btn.innerHTML = (Data.Upgrades.includes(1)) ? "Bought" : "Cost: <b>5</b> Restoration Points"
+
+    RestorationBuyable4LvlTxt.innerHTML = `Level: <b>${format(Data.Upgrades.includes(2) ? 1 : 0)}</b> / <b>1</b>`
+    RestorationBuyable4Btn.innerHTML = (Data.Upgrades.includes(2)) ? "Bought" : "Cost: <b>10</b> Restoration Points"
 }
 
 function CalcRestorationGain() {
