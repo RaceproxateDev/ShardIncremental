@@ -186,7 +186,11 @@
         </div>
 
         <div id="content5" style="display: block;">
-            <h3 style="color: green">You have <b>0</b> Points</h3>
+            <h3 style="color: green" id="PointsDisplayTxt">You have <b>0</b> Points</h3>
+            <h2 style="color: green">Build</h2>
+            <h3 style="color: green;">Building will reset everything before this.</h3>
+            <h3 style="color: rgb(168, 168, 246);" id="BuildReqTxt">You need <b>50</b> Restoration Points to build.</h3>
+            <button id="BuildResetBtn" style="border: 1px solid green; background-color: black; color: green;" onclick="BuildReset(false)">Build</button> <br><br>
         </div>
     </body>
 
@@ -199,5 +203,6 @@
     <script src="gameScripts/Construction.js"></script>
     <script src="gameScripts/Destruction.js"></script>
     <script src="gameScripts/Restoration.js"></script>
+    <script src="gameScripts/Build.js"></script>
     <script src="gameScripts/UnlockContent.js"></script>
 </html>

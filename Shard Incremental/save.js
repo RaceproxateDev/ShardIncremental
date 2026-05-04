@@ -6,6 +6,7 @@ var Data = {
     Destructions: new OmegaNum(0), DestructionReq: new OmegaNum(10), DestructionScale: new OmegaNum(2.5),
     ConstructionEnergy: new OmegaNum(0), ConstructionEnergyMult: new OmegaNum(1),
     RestorationPoints: new OmegaNum(0), RestorationMult: new OmegaNum(1), RestorationStorage: new OmegaNum(0),
+    Points: new OmegaNum(0), PointMult: new OmegaNum(1), PointReq: new OmegaNum(50), PointScale: new OmegaNum(5),
 
     Buyables: {
         1: {
@@ -65,6 +66,7 @@ var Template = {
     Destructions: new OmegaNum(0), DestructionReq: new OmegaNum(10), DestructionScale: new OmegaNum(2.5),
     ConstructionEnergy: new OmegaNum(0), ConstructionEnergyMult: new OmegaNum(1),
     RestorationPoints: new OmegaNum(0), RestorationMult: new OmegaNum(1), RestorationStorage: new OmegaNum(0),
+    Points: new OmegaNum(0), PointMult: new OmegaNum(1), PointReq: new OmegaNum(50), PointScale: new OmegaNum(5),
 
     Buyables: {
         1: {
