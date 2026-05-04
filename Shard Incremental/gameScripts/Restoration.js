@@ -68,6 +68,9 @@ function CalcRestorationGain() {
     let exp = 0.35;
     let exp2 = 0.5;
 
+    if (Data.Points.gte(1)) exp = exp + 0.1;
+    if (Data.Points.gte(1)) exp2 = exp2 + 0.1;
+
     Data.RestorationStorage = Data.Destructions.div(15).pow(exp).mul(Data.ConstructionEnergy.div(8000).pow(exp2)).times(Data.RestorationMult);
 }
 
@@ -91,6 +94,7 @@ function CalcRestorationMult() {
     if (Data.Upgrades.includes(3)) mult = mult.mul(1.5);
     if (Data.Upgrades.includes(6)) mult = mult.mul(3);
     if (Data.Destructions.gte(60)) mult = mult.mul(1.5);
+    if (Data.Points.gte(1)) mult = mult.mul(2);
 
     Data.RestorationMult = mult;
     return mult;
