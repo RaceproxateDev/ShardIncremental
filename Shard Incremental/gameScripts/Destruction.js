@@ -18,6 +18,7 @@ let DestructionMilestone8 = document.getElementById("DestructionMilestone8");
 let DestructionMilestone9 = document.getElementById("DestructionMilestone9");
 let DestructionMilestone10 = document.getElementById("DestructionMilestone10");
 let DestructionMilestone11 = document.getElementById("DestructionMilestone11");
+let DestructionMilestone12 = document.getElementById("DestructionMilestone12");
 
 function calcDestructionBulk() {
     let bulk = new OmegaNum(1);
@@ -62,7 +63,7 @@ function updateHtmlDestruction() {
     DestructionMilestone9.style.backgroundColor = (Data.Destructions.gte(10)) ? "green" : "black";
     DestructionMilestone10.style.backgroundColor = (Data.Destructions.gte(11)) ? "green" : "black";
     DestructionMilestone11.style.backgroundColor = (Data.Destructions.gte(15)) ? "green" : "black";
-
+    DestructionMilestone12.style.backgroundColor = (Data.Destructions.gte(60)) ? "green" : "black";
 }
 
 function Autobuy() {
@@ -99,6 +100,7 @@ function CalcConstructionEnergyMult() {
     if (Data.Destructions.gte(9)) mult = mult.times(3);
     if (Data.Destructions.gte(10)) mult = mult.times(5);
     mult = mult.times(OmegaNum.pow(2, Data.Buyables[5].amount));
+    if (Data.Destructions.gte(60)) mult = mult.times(3);
 
     Data.ConstructionEnergyMult = mult;
     return mult;

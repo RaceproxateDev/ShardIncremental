@@ -80,6 +80,7 @@ function CalcRestorationMult() {
     let mult = new OmegaNum(1);
     if (Data.Upgrades.includes(3)) mult = mult.mul(1.5);
     if (Data.Upgrades.includes(6)) mult = mult.mul(3);
+    if (Data.Destructions.gte(60)) mult = mult.mul(1.5);
 
     Data.RestorationMult = mult;
     return mult;
