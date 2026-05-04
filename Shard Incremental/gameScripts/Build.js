@@ -26,7 +26,7 @@ function BuildReset(force) {
         resetStats(13, 0);
         resetBuyables(6, 1);
 
-        Data.Upgrades = Data.Upgrades.filter(upg => upg <= keepUpgs())
+        Data.Upgrades = Data.Upgrades.filter(upg => upg >= keepUpgs())
 
         if (!force) {
             Data.Points = Data.Points.add(Data.PointMult);
