@@ -54,7 +54,15 @@ function RestorationReset(force) {
     }
 }
 
+function CalcRestorationMult() {
+    let mult = new OmegaNum(1);
+
+    Data.RestorationMult = mult;
+    return mult;
+}
+
 setInterval(function() {
     CalcRestorationGain();
+    CalcRestorationMult();
     UpdateRestorationDisplay();
 }, 100)
