@@ -17,10 +17,12 @@ let RestorationBuyable4Btn = document.getElementById("RestorationBuyable4Btn");
 // Upgrade Tree
 let RestorationUpgTree2 = document.getElementById("RestorationUpgTree2");
 let RestorationUpgTree3 = document.getElementById("RestorationUpgTree3");
+let RestorationUpgTree4 = document.getElementById("RestorationUpgTree4");
 
 let RestorationUpgTree1CostTxt = document.getElementById("RestorationUpgTree1CostTxt");
 let RestorationUpgTree2CostTxt = document.getElementById("RestorationUpgTree2CostTxt");
 let RestorationUpgTree3CostTxt = document.getElementById("RestorationUpgTree3CostTxt");
+let RestorationUpgTree4CostTxt = document.getElementById("RestorationUpgTree4CostTxt");
 
 function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
@@ -47,6 +49,9 @@ function UpdateRestorationDisplay() {
 
     RestorationUpgTree3.style.display = (Data.Upgrades.includes(3)) ? "block" : "none"
     RestorationUpgTree3CostTxt.innerHTML = (Data.Upgrades.includes(5)) ? "Bought" : "Cost: <b>10</b> Restoration Points"
+
+    RestorationUpgTree4.style.display = (Data.Upgrades.includes(4) || Data.Upgrades.includes(5)) ? "block" : "none"
+    RestorationUpgTree4CostTxt.innerHTML = (Data.Upgrades.includes(6)) ? "Bought" : "Cost: <b>12</b> Restoration Points"
 }
 
 function CalcRestorationGain() {
@@ -74,6 +79,7 @@ function RestorationReset(force) {
 function CalcRestorationMult() {
     let mult = new OmegaNum(1);
     if (Data.Upgrades.includes(3)) mult = mult.mul(1.5);
+    if (Data.Upgrades.includes(6)) mult = mult.mul(3);
 
     Data.RestorationMult = mult;
     return mult;

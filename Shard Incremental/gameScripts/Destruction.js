@@ -28,7 +28,7 @@ function calcDestructionBulk() {
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
         if (!force) {
-            Data.Destructions = Data.Destructions.add(1).times(calcDestructionBulk());
+            Data.Destructions = Data.Destructions.add(calcDestructionBulk());
             Data.DestructionReq = Data.DestructionReq.mul(Data.DestructionScale);
         }
 
