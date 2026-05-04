@@ -2,6 +2,8 @@ let PointsDisplayTxt = document.getElementById("PointsDisplayTxt");
 let BuildReqTxt = document.getElementById("BuildReqTxt");
 let BuildResetBtn = document.getElementById("BuildResetBtn");
 
+let BuildMilestone1 = document.getElementById("BuildMilestone1");
+
 function calcPointMult() {
     let mult = new OmegaNum(1);
 
@@ -19,6 +21,8 @@ function UpdateBuildDisplay() {
     PointsDisplayTxt.innerHTML = "You have <b>" + format(Data.Points) + "</b> " + (Data.Points.eq(1) ? "Point" : "Points");
     BuildReqTxt.innerHTML = "You need <b>" + format(Data.PointReq) + "</b> Restoration Points to build.";
     BuildResetBtn.innerHTML = (Data.RestorationPoints.gte(Data.PointReq)) ? "Build" : "Meet the requirements to build";
+
+    BuildMilestone1.style.backgroundColor = (Data.Points.gte(1)) ? "lightgray" : "black";
 }
 
 function BuildReset(force) {
