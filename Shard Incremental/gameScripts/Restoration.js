@@ -18,11 +18,15 @@ let RestorationBuyable4Btn = document.getElementById("RestorationBuyable4Btn");
 let RestorationUpgTree2 = document.getElementById("RestorationUpgTree2");
 let RestorationUpgTree3 = document.getElementById("RestorationUpgTree3");
 let RestorationUpgTree4 = document.getElementById("RestorationUpgTree4");
+let RestorationUpgTree5 = document.getElementById("RestorationUpgTree5");
+let RestorationUpgTree6 = document.getElementById("RestorationUpgTree6");
 
 let RestorationUpgTree1CostTxt = document.getElementById("RestorationUpgTree1CostTxt");
 let RestorationUpgTree2CostTxt = document.getElementById("RestorationUpgTree2CostTxt");
 let RestorationUpgTree3CostTxt = document.getElementById("RestorationUpgTree3CostTxt");
 let RestorationUpgTree4CostTxt = document.getElementById("RestorationUpgTree4CostTxt");
+let RestorationUpgTree5CostTxt = document.getElementById("RestorationUpgTree5CostTxt");
+let RestorationUpgTree6CostTxt = document.getElementById("RestorationUpgTree6CostTxt");
 
 function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
@@ -52,6 +56,12 @@ function UpdateRestorationDisplay() {
 
     RestorationUpgTree4.style.display = (Data.Upgrades.includes(4) || Data.Upgrades.includes(5)) ? "block" : "none"
     RestorationUpgTree4CostTxt.innerHTML = (Data.Upgrades.includes(6)) ? "Bought" : "Cost: <b>12</b> Restoration Points"
+
+    RestorationUpgTree5.style.display = (Data.Upgrades.includes(6)) ? "block" : "none"
+    RestorationUpgTree5CostTxt.innerHTML = (Data.Upgrades.includes(7)) ? "Bought" : "Cost: <b>20</b> Restoration Points"
+
+    RestorationUpgTree6.style.display = (Data.Upgrades.includes(6)) ? "block" : "none"
+    RestorationUpgTree6CostTxt.innerHTML = (Data.Upgrades.includes(8)) ? "Bought" : "Cost: <b>30</b> Restoration Points"
 }
 
 function CalcRestorationGain() {
