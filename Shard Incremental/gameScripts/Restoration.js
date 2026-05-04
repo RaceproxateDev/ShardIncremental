@@ -14,6 +14,14 @@ let RestorationBuyable3Btn = document.getElementById("RestorationBuyable3Btn");
 let RestorationBuyable4LvlTxt = document.getElementById("RestorationBuyable4LvlTxt");
 let RestorationBuyable4Btn = document.getElementById("RestorationBuyable4Btn");
 
+// Upgrade Tree
+let RestorationUpgTree2 = document.getElementById("RestorationUpgTree2");
+let RestorationUpgTree3 = document.getElementById("RestorationUpgTree3");
+
+let RestorationUpgTree1CostTxt = document.getElementById("RestorationUpgTree1CostTxt");
+let RestorationUpgTree2CostTxt = document.getElementById("RestorationUpgTree2CostTxt");
+let RestorationUpgTree3CostTxt = document.getElementById("RestorationUpgTree3CostTxt");
+
 function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
     CalcRestorationGainTxt.innerHTML = "You will gain <b>" + format(Data.RestorationStorage) + "</b>" + (Data.RestorationStorage.eq(1) ? " Restoration Point" : " Restoration Points");
@@ -30,6 +38,15 @@ function UpdateRestorationDisplay() {
 
     RestorationBuyable4LvlTxt.innerHTML = `Level: <b>${format(Data.Upgrades.includes(2) ? 1 : 0)}</b> / <b>1</b>`
     RestorationBuyable4Btn.innerHTML = (Data.Upgrades.includes(2)) ? "Bought" : "Cost: <b>10</b> Restoration Points"
+
+    // Upgrade Tree
+    RestorationUpgTree1CostTxt.innerHTML = (Data.Upgrades.includes(3)) ? "Bought" : "Cost: <b>5</b> Restoration Points"
+
+    RestorationUpgTree2.style.display = (Data.Upgrades.includes(3)) ? "block" : "none"
+    RestorationUpgTree2CostTxt.innerHTML = (Data.Upgrades.includes(4)) ? "Bought" : "Cost: <b>6</b> Restoration Points"
+
+    RestorationUpgTree3.style.display = (Data.Upgrades.includes(3)) ? "block" : "none"
+    RestorationUpgTree3CostTxt.innerHTML = (Data.Upgrades.includes(5)) ? "Bought" : "Cost: <b>10</b> Restoration Points"
 }
 
 function CalcRestorationGain() {
@@ -56,6 +73,7 @@ function RestorationReset(force) {
 
 function CalcRestorationMult() {
     let mult = new OmegaNum(1);
+    if (Data.Upgrades.includes(3)) mult = mult.mul(1.5);
 
     Data.RestorationMult = mult;
     return mult;
