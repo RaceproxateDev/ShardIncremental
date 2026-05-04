@@ -9,7 +9,7 @@ function Unlock() {
     content3.style.display = (Data.constructionPoints.gte(10) || hasContent("destruction")) ? "block" : "none"
     content3_1.style.display = (Data.Destructions.gte(8)) ? "block" : "none"
     content4.style.display = (Data.Destructions.gte(15) || hasContent("restoration")) ? "block" : "none"
-    content4_1.style.display = (Data.RestorationPoints.gte(5) || hasContent("restoration")) ? "block" : "none"
+    content4_1.style.display = (Data.RestorationPoints.gte(5) || Data.Upgrades.includes(3)) ? "block" : "none"
 }
 
 setInterval(function() {

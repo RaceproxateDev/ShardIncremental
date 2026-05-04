@@ -19,10 +19,16 @@ let DestructionMilestone9 = document.getElementById("DestructionMilestone9");
 let DestructionMilestone10 = document.getElementById("DestructionMilestone10");
 let DestructionMilestone11 = document.getElementById("DestructionMilestone11");
 
+function calcDestructionBulk() {
+    let bulk = new OmegaNum(1);
+    if (Data.Upgrades.includes(5)) bulk = bulk.mul(2);
+    return bulk;
+}
+
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
         if (!force) {
-            Data.Destructions = Data.Destructions.add(1);
+            Data.Destructions = Data.Destructions.add(1).times(calcDestructionBulk());
             Data.DestructionReq = Data.DestructionReq.mul(Data.DestructionScale);
         }
 
