@@ -104,6 +104,7 @@ function CalcConstructionEnergyMult() {
     if (Data.Destructions.gte(10)) mult = mult.times(5);
     mult = mult.times(OmegaNum.pow(2, Data.Buyables[5].amount));
     if (Data.Destructions.gte(60)) mult = mult.times(3);
+    if (Data.Points.gte(2)) mult = mult.times(10);
 
     Data.ConstructionEnergyMult = mult;
     return mult;
