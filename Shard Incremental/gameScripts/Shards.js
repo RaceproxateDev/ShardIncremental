@@ -36,6 +36,7 @@ function calcShardMult() {
     if (Data.Upgrades.includes(4)) mult = OmegaNum.times(mult, 4)
     if (Data.Upgrades.includes(8)) mult = OmegaNum.times(mult, 10)
     if (Data.Points.gte(1)) mult = OmegaNum.times(mult, 5)
+    if (Data.Points.gte(2)) mult = OmegaNum.times(mult, 6)
 
     Data.shardMult = mult
     return mult

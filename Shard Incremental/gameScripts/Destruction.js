@@ -25,6 +25,7 @@ function calcDestructionBulk() {
     if (Data.Upgrades.includes(5)) bulk = bulk.mul(2);
     if (Data.Upgrades.includes(7)) bulk = bulk.mul(3);
     if (Data.Points.gte(1)) bulk = bulk.mul(2);
+    if (Data.Points.gte(2)) bulk = bulk.mul(3);
     return bulk;
 }
 
