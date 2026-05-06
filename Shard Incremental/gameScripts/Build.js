@@ -11,6 +11,11 @@ let CellMultTxt = document.getElementById("CellMultTxt");
 
 let CellBuyable1LvlTxt = document.getElementById("CellBuyable1LvlTxt");
 let CellBuyable1Btn = document.getElementById("CellBuyable1Btn");
+let CellBuyable2LvlTxt = document.getElementById("CellBuyable2LvlTxt");
+let CellBuyable2Btn = document.getElementById("CellBuyable2Btn");
+
+let ExtendResetBtn = document.getElementById("ExtendResetBtn");
+let ExtensionsDisplayTxt = document.getElementById("ExtensionsDisplayTxt");
 
 
 function calcPointMult() {
@@ -40,6 +45,11 @@ function UpdateBuildDisplay() {
 
     CellBuyable1LvlTxt.innerHTML = "Level: <b>" + format(Data.Buyables[7].amount) + "</b> / <b>" + format(Data.Buyables[7].max) + "</b>";
     CellBuyable1Btn.innerHTML = `Cost: <b>${format(Data.Buyables[7].price)}</b> Cells`
+    CellBuyable2LvlTxt.innerHTML = "Level: <b>" + format(Data.Buyables[8].amount) + "</b> / <b>" + format(Data.Buyables[8].max) + "</b>";
+    CellBuyable2Btn.innerHTML = `Cost: <b>${format(Data.Buyables[8].price)}</b> Cells`
+
+    ExtendResetBtn.innerHTML = (Data.Cells.gte(Data.ExtendReq)) ? "Extend" : `You need <b>${format(Data.ExtendReq)}</b> Cells to extend.`;
+    ExtensionsDisplayTxt.innerHTML = "You have <b>" + format(Data.Extensions) + "</b> " + (Data.Extensions.eq(1) ? "Extension" : "Extensions");
 }
 
 function BuildReset(force) {
@@ -67,6 +77,7 @@ function GenerateCells() {
 function CellMultCalc() {
     let mult = new OmegaNum(1.01);
     mult = mult.add(Data.Buyables[7].amount.mul(0.01))
+    mult = mult.add(Data.Extensions.mul(0.01))
 
     Data.CellMult = mult;
     return mult;
@@ -74,14 +85,37 @@ function CellMultCalc() {
 
 function CalcSecondsToGenCell() {
     let sec = 30
-
+    sec = sec - (Data.Buyables[8].amount.toNumber())
     return sec;
+}
+
+function calcCellUpgsCap() {
+    let cellUpg1Cap = new OmegaNum(10);
+    let cellUpg2Cap = new OmegaNum(10);
+
+    cellUpg1Cap = cellUpg1Cap.add(Data.Extensions.mul(10));
+
+    Data.Buyables[7].max = cellUpg1Cap;
+    Data.Buyables[8].max = cellUpg2Cap;
+}
+
+function ExtendReset(force) {
+    if (Data.Cells.gte(Data.ExtendReq)) {
+        resetStats(22, 17)
+        resetBuyables(9, 7)
+
+        if (!force) {
+            Data.Extensions = Data.Extensions.add(1);
+            Data.ExtendReq = Data.ExtendReq.mul(Data.ExtendScale);
+        }
+    }
 }
 
 setInterval(function() {
     calcPointMult();
     UpdateBuildDisplay();
     CellMultCalc();
+    calcCellUpgsCap();
 }, 100)
 
 setInterval(function() {
