@@ -13,7 +13,7 @@ function calcPointMult() {
 }
 
 function keepUpgs() {
-    let keep = 8;
+    let keep = 9;
 
     return keep;
 }
