@@ -90,6 +90,16 @@ button {
     background-color: black;
 }
 
+#content5_1 {
+    border: 1px solid rgb(0, 255, 191);
+    text-align: center;
+    width: 500px;
+    position: absolute;
+    top: 920px;
+    left: 520px;
+    background-color: black;
+}
+
 .ResetDataBtn {
     background-color: red;
     color: white;

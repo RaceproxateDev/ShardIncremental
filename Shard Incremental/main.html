@@ -185,7 +185,7 @@
             </div><br>
         </div>
 
-        <div id="content5" style="display: block;">
+        <div id="content5" style="display: none;">
             <h3 style="color: green" id="PointsDisplayTxt">You have <b>0</b> Points</h3>
             <h2 style="color: green">Build</h2>
             <h3 style="color: green;">Building will reset everything before this.</h3>
@@ -209,7 +209,24 @@
                 - 10x Construction Energy<br>
                 - 2.5x Restoration Points<br><br>
             </h3> <br>
+            <h3 class="Milestone" id="BuildMilestone3" style="border: 2px solid green; color: green;">
+                <b>4 Points</b> <br><br>
+                - Unlock a new thing
+                <br><br>
+            </h3> <br>
         </div>
+
+        <div id="content5_1" style="display: none;">
+            <h3 style="color: rgb(0, 255, 191);" id="CellDisplayTxt">You have <b>1</b> Cell</h3>
+            <h3 style="color: rgb(0, 255, 191);" id="CellMultTxt"><b>1.01x</b> every <b>30</b> seconds</h3>
+
+            <h2 style="color: rgb(0, 255, 191);">Cell Upgrades</h2>
+            <h3 style="color: rgb(0, 255, 191);">More Cells</h3>
+            <h3 id="CellBuyable1LvlTxt" style="color: rgb(0, 255, 191);">Level: <b>0</b> / <b>100</b></h3>
+            <h3 style="color: rgb(0, 255, 191);">+0.01x Cell Multiplier</h3>
+            <button id="CellBuyable1Btn" style="border: 1px solid rgb(0, 255, 191); background-color: black; color: rgb(0, 255, 191);", onclick="buyUpg(7, 'Cells', false)">Cost: 1.01 Cell</button> <br><br>
+        </div>
+
     </body>
 
     <link rel="stylesheet" href="style.css">

@@ -7,6 +7,7 @@ var Data = {
     ConstructionEnergy: new OmegaNum(0), ConstructionEnergyMult: new OmegaNum(1),
     RestorationPoints: new OmegaNum(0), RestorationMult: new OmegaNum(1), RestorationStorage: new OmegaNum(0),
     Points: new OmegaNum(0), PointMult: new OmegaNum(1), PointReq: new OmegaNum(50), PointScale: new OmegaNum(5),
+    Cells: new OmegaNum(1), CellMult: new OmegaNum(1.01),
 
     Buyables: {
         1: {
@@ -54,6 +55,14 @@ var Data = {
             price: new OmegaNum(2.5),
             scale: new OmegaNum(4),
         },
+        
+        7: {
+            // ItsOnReset: "build"
+            amount: new OmegaNum(0),
+            max: new OmegaNum(10),
+            price: new OmegaNum(1.01),
+            scale: new OmegaNum(1.01),
+        },
     },
 
     Unlocks: [],
@@ -67,6 +76,7 @@ var Template = {
     ConstructionEnergy: new OmegaNum(0), ConstructionEnergyMult: new OmegaNum(1),
     RestorationPoints: new OmegaNum(0), RestorationMult: new OmegaNum(1), RestorationStorage: new OmegaNum(0),
     Points: new OmegaNum(0), PointMult: new OmegaNum(1), PointReq: new OmegaNum(50), PointScale: new OmegaNum(5),
+    Cells: new OmegaNum(1), CellMult: new OmegaNum(1.01),
 
     Buyables: {
         1: {
@@ -113,6 +123,14 @@ var Template = {
             max: new OmegaNum(10),
             price: new OmegaNum(2.5),
             scale: new OmegaNum(4),
+        },
+
+        7: {
+            // ItsOnReset: "build"
+            amount: new OmegaNum(0),
+            max: new OmegaNum(10),
+            price: new OmegaNum(1.01),
+            scale: new OmegaNum(1.01),
         },
     },
 

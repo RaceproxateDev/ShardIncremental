@@ -4,6 +4,14 @@ let BuildResetBtn = document.getElementById("BuildResetBtn");
 
 let BuildMilestone1 = document.getElementById("BuildMilestone1");
 let BuildMilestone2 = document.getElementById("BuildMilestone2");
+let BuildMilestone3 = document.getElementById("BuildMilestone3");
+
+let CellDisplayTxt = document.getElementById("CellDisplayTxt");
+let CellMultTxt = document.getElementById("CellMultTxt");
+
+let CellBuyable1LvlTxt = document.getElementById("CellBuyable1LvlTxt");
+let CellBuyable1Btn = document.getElementById("CellBuyable1Btn");
+
 
 function calcPointMult() {
     let mult = new OmegaNum(1);
@@ -25,6 +33,13 @@ function UpdateBuildDisplay() {
 
     BuildMilestone1.style.backgroundColor = (Data.Points.gte(1)) ? "lightgray" : "black";
     BuildMilestone2.style.backgroundColor = (Data.Points.gte(2)) ? "lightgray" : "black";
+    BuildMilestone3.style.backgroundColor = (Data.Points.gte(4)) ? "lightgray" : "black";
+
+    CellDisplayTxt.innerHTML = "You have <b>" + format(Data.Cells) + "</b> " + (Data.Cells.eq(1) ? "Cell" : "Cells");
+    CellMultTxt.innerHTML = "<b>" + format(Data.CellMult) + "x</b> every <b>" + CalcSecondsToGenCell() + "</b> seconds";
+
+    CellBuyable1LvlTxt.innerHTML = "Level: <b>" + format(Data.Buyables[7].amount) + "</b> / <b>" + format(Data.Buyables[7].max) + "</b>";
+    CellBuyable1Btn.innerHTML = `Cost: <b>${format(Data.Buyables[7].price)}</b> Cells`
 }
 
 function BuildReset(force) {
@@ -45,7 +60,29 @@ function BuildReset(force) {
     }
 }
 
+function GenerateCells() {
+    Data.Cells = Data.Cells.mul(Data.CellMult);
+}
+
+function CellMultCalc() {
+    let mult = new OmegaNum(1.01);
+
+    Data.CellMult = mult;
+    return mult;
+}
+
+function CalcSecondsToGenCell() {
+    let sec = 30
+
+    return sec;
+}
+
 setInterval(function() {
     calcPointMult();
     UpdateBuildDisplay();
+    CellMultCalc();
 }, 100)
+
+setInterval(function() {
+    GenerateCells();
+}, CalcSecondsToGenCell() * 1000)
