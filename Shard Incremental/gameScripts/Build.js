@@ -66,6 +66,7 @@ function GenerateCells() {
 
 function CellMultCalc() {
     let mult = new OmegaNum(1.01);
+    mult = mult.add(Data.Buyables[7].amount.mul(0.01))
 
     Data.CellMult = mult;
     return mult;

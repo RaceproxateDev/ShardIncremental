@@ -55,13 +55,13 @@ var Data = {
             price: new OmegaNum(2.5),
             scale: new OmegaNum(4),
         },
-        
+
         7: {
             // ItsOnReset: "build"
             amount: new OmegaNum(0),
             max: new OmegaNum(10),
             price: new OmegaNum(1.01),
-            scale: new OmegaNum(1.01),
+            scale: new OmegaNum(1.03),
         },
     },
 
@@ -130,7 +130,7 @@ var Template = {
             amount: new OmegaNum(0),
             max: new OmegaNum(10),
             price: new OmegaNum(1.01),
-            scale: new OmegaNum(1.01),
+            scale: new OmegaNum(1.03),
         },
     },
 
