@@ -78,6 +78,7 @@ function CellMultCalc() {
     let mult = new OmegaNum(1.01);
     mult = mult.add(Data.Buyables[7].amount.mul(0.01))
     mult = mult.add(Data.Extensions.mul(0.01))
+    if (Data.Extensions.gte(5)) mult = mult.add(0.02)
 
     Data.CellMult = mult;
     return mult;
@@ -86,6 +87,7 @@ function CellMultCalc() {
 function CalcSecondsToGenCell() {
     let sec = 30
     sec = sec - (Data.Buyables[8].amount.toNumber())
+    if (Data.Extensions.gte(2)) sec = sec - 1
     return sec;
 }
 
