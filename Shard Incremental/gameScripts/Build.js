@@ -6,6 +6,7 @@ let BuildMilestone1 = document.getElementById("BuildMilestone1");
 let BuildMilestone2 = document.getElementById("BuildMilestone2");
 let BuildMilestone3 = document.getElementById("BuildMilestone3");
 let BuildMilestone4 = document.getElementById("BuildMilestone4");
+let BuildMilestone5 = document.getElementById("BuildMilestone5");
 
 let CellDisplayTxt = document.getElementById("CellDisplayTxt");
 let CellMultTxt = document.getElementById("CellMultTxt");
@@ -41,6 +42,7 @@ function UpdateBuildDisplay() {
     BuildMilestone2.style.backgroundColor = (Data.Points.gte(2)) ? "lightgray" : "black";
     BuildMilestone3.style.backgroundColor = (Data.Points.gte(4)) ? "lightgray" : "black";
     BuildMilestone4.style.backgroundColor = (Data.Points.gte(5)) ? "lightgray" : "black";
+    BuildMilestone5.style.backgroundColor = (Data.Points.gte(6)) ? "lightgray" : "black";
 
     CellDisplayTxt.innerHTML = "You have <b>" + format(Data.Cells) + "</b> " + (Data.Cells.eq(1) ? "Cell" : "Cells");
     CellMultTxt.innerHTML = "<b>" + format(Data.CellMult) + "x</b> every <b>" + CalcSecondsToGenCell() + "</b> seconds";
@@ -82,6 +84,7 @@ function CellMultCalc() {
     mult = mult.add(Data.Extensions.mul(0.01))
     if (Data.Extensions.gte(5)) mult = mult.add(0.02)
     if (Data.Points.gte(5)) mult = mult.add(0.05)
+    if (Data.Points.gte(6)) mult = mult.add(0.01)
 
     Data.CellMult = mult;
     return mult;
@@ -91,6 +94,8 @@ function CalcSecondsToGenCell() {
     let sec = 30
     sec = sec - (Data.Buyables[8].amount.toNumber())
     if (Data.Extensions.gte(2)) sec = sec - 1
+    if (Data.Points.gte(6)) sec = sec - 0.5
+    
     return sec;
 }
 
