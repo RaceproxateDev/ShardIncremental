@@ -1,2 +1,2 @@
 An Incremental game
-https://github.com/RaceproxateDev/ShardIncremental/tree/main/ShardIncremental
+https://github.com/RaceproxateDev/ShardIncremental/blob/main/ShardIncremental/
