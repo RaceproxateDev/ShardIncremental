@@ -106,7 +106,7 @@ function calcCellUpgsCap() {
 
 function ExtendReset(force) {
     if (Data.Cells.gte(Data.ExtendReq)) {
-        resetStats(22, 17)
+        resetStats(18, 17)
         resetBuyables(9, 7)
 
         if (!force) {
