@@ -183,12 +183,11 @@ function load() {
 
 function resetData() {
     if (confirm("Are you sure you want to reset your data?")) {
-        localStorage.removeItem("contentData")
-        location.reload()
+        Data = Template
     }
 }
 
-setInterval(save, 500)
+setInterval(save, 1000)
 
 window.addEventListener("load", () => {
     load()
