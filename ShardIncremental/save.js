@@ -184,6 +184,8 @@ function load() {
 function resetData() {
     if (confirm("Are you sure you want to reset your data?")) {
         if (localStorage.getItem("contentData")) {
+            let freshData = Template;
+
             fixSave(freshData, Template);
             Data = freshData;
             save();
