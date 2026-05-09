@@ -188,7 +188,7 @@ function resetData() {
     }
 }
 
-setInterval(save, 100)
+setInterval(save, 500)
 
 window.addEventListener("load", () => {
     load()
