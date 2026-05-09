@@ -184,12 +184,16 @@ function load() {
 function resetData() {
     if (confirm("Are you sure you want to reset your data?")) {
         if (localStorage.getItem("contentData")) {
-            Data = Template
+            fixSave(freshData, Template);
+            Data = freshData;
+            save();
+            // Optional: reload the page to ensure UI updates
+            location.reload();
         }
     }
 }
 
-setInterval(save(), 100)
+setInterval(save, 100)
 
 window.addEventListener("load", () => {
     load()
