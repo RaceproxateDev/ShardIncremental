@@ -107,6 +107,12 @@ button {
     border: 3px solid darkred;
 }
 
+.SaveDataBtn {
+    background-color: rgb(53, 212, 5);
+    color: white;
+    border: 3px solid rgb(6, 120, 20);
+}
+
 .Milestone {
     border: 1px solid white;
     width: 400px;
