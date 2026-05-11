@@ -166,11 +166,31 @@ function save() {
     localStorage.setItem("contentData", btoa(unescape(encodeURIComponent(JSON.stringify(Data)))))
 }
 
+function fixSave(data, template) {
+    for (let key in template) {
+        if (template[key] === undefined) {
+            data[key] = template[key]
+        }
+
+        if (template[key] instanceof OmegaNum) {
+            data[key] = new OmegaNum(data[key])
+        } else {
+            data[key] = data[key]
+        }
+
+        if (typeof template[key] === 'object' && template[key] !== null) {
+            fixSave(data[key], template[key]);
+        }
+    }
+}
+
 function load() {
     let savedata = localStorage.getItem("contentData")
    
     if (savedata) {
         let parsed = JSON.parse(decodeURIComponent(escape(atob(savedata))))
+        
+        fixSave(parsed, Template)
         Data = parsed
     }
 }
@@ -180,6 +200,7 @@ function resetData() {
         if (localStorage.getItem("contentData")) {
             let freshData = Template;
 
+            fixSave(freshData, Template);
             Data = freshData;
             save();
             // Optional: reload the page to ensure UI updates
@@ -212,6 +233,8 @@ function ImportData() {
     try {
         let decoded = decodeURIComponent(escape(atob(inp)));
         let parsed = JSON.parse(decoded);
+
+        fixSave(parsed, Template)
 
         Data = parsed;
         save();
