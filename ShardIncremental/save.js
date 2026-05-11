@@ -199,17 +199,8 @@ function load() {
 
 function resetData() {
     if (confirm("Are you sure you want to reset your data?")) {
-        if (localStorage.getItem("contentData")) {
-            let freshData = Template;
-
-            fixSave(freshData, Template);
-
-            Data = freshData;
-            
-            save();
-            // Optional: reload the page to ensure UI updates
-            location.reload();
-        }
+        localStorage.removeItem("contentData");
+        location.reload();
     }
 }
 
