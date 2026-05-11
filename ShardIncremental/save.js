@@ -167,21 +167,23 @@ function save() {
 }
 
 function fixSave(data, template) {
+    if (data === null || data === undefined) return template;
+
     for (let key in template) {
         if (template[key] === undefined) {
             data[key] = template[key]
         }
 
-        if (template[key] instanceof OmegaNum) {
-            data[key] = new OmegaNum(data[key])
-        } else {
-            data[key] = data[key]
+        else if (template[key] instanceof OmegaNum) {
+            data[key] = new OmegaNum(data[key] || template[key])
         }
 
-        if (typeof template[key] === 'object' && template[key] !== null) {
-            fixSave(data[key], template[key]);
+        else if (typeof template[key] === 'object' && template[key] !== null) {
+            data[key] = fixSave(data[key], template[key]);
         }
     }
+
+    return data;
 }
 
 function load() {
