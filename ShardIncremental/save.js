@@ -74,7 +74,10 @@ var Data = {
 
     Unlocks: [],
     Upgrades: [],
-    Settings: {},
+    Settings: {
+        AutobuyShardUpgs: true,
+        AutobuyConstructionUpgs: true,
+    },
 }
 
 var Template = {
@@ -153,7 +156,10 @@ var Template = {
 
     Unlocks: [],
     Upgrades: [],
-    Settings: {},
+    Settings: {
+        AutobuyShardUpgs: true,
+        AutobuyConstructionUpgs: true,
+    },
 }
 
 function save() {

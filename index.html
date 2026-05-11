@@ -11,7 +11,8 @@
         <div id="Settings">
             <h2>Settings</h2>
             <button class="ResetDataBtn" onclick="resetData()">Reset Data</button>
-            <button class="SaveDataBtn" onclick="save()">Save Data</button> <br><br>
+            <button class="SaveDataBtn" onclick="save()">Save Data</button>
+            <br><br>
         </div> <br>
 
         <div id="content1">
@@ -28,6 +29,8 @@
                 <h3 id="ShardBuyable2LvlTxt">Level: 0/100</h3>
                 <h3>2x shards</h3>
                 <button id="ShardBuyable2Btn" style="border: 1px solid white; background-color: black; color: white;", onclick="buyUpg(2, 'shards', true)">Cost: 100 shards</button> <br><br>
+
+                Enable Shard Autobuy: <button class="SettingsCheck" style="width: 30px; height: 30px; left: 360px; top: 680px;" id="ShardAutobuyCheck" onclick="CheckOrUncheck('AutobuyShardUpgs', 0)">X</button> <br><br>
             </div>
         </div>
 
@@ -48,6 +51,8 @@
             <h3 id="ConstructionBuyable2LvlTxt">Level: 0/100</h3>
             <h3>+100% construction points</h3>
             <button id="ConstructionBuyable2Btn" style="border: 1px solid white; background-color: black; color: white;", onclick="buyUpg(4, 'constructionPoints', true)">Cost: 5 construction points</button> <br><br>
+
+            Enable Construction Autobuy: <button class="SettingsCheck" style="width: 30px; height: 30px; top: 735px; left: 380px;" id="ConstructionAutobuyCheck" onclick="CheckOrUncheck('AutobuyConstructionUpgs', 1)">X</button> <br><br>
         </div>
 
         <div id="content3">
@@ -272,4 +277,5 @@
     <script src="ShardIncremental/gameScripts/Restoration.js"></script>
     <script src="ShardIncremental/gameScripts/Build.js"></script>
     <script src="ShardIncremental/gameScripts/UnlockContent.js"></script>
+    <script src="ShardIncremental/Utils/Settings.js"></script>
 </html>

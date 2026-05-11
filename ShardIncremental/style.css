@@ -87,7 +87,7 @@ button {
     text-align: center;
     width: 500px;
     position: absolute;
-    top: 698px;
+    top: 735px;
     background-color: black;
 }
 
@@ -96,7 +96,7 @@ button {
     text-align: center;
     width: 500px;
     position: absolute;
-    top: 920px;
+    top: 960px;
     left: 520px;
     background-color: black;
 }
@@ -119,4 +119,11 @@ button {
     margin: auto;
     margin-top: 10px;
     background-color: black;
+}
+
+.SettingsCheck {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    position: absolute;
 }

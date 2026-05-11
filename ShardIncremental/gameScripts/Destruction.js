@@ -77,13 +77,17 @@ function Autobuy() {
     if (Data.Upgrades.includes(2)) ConstructionSpend = false;
 
     if (Data.Destructions.gte(4)) {
-        buyUpg(1, "shards", spend);
-        buyUpg(2, "shards", spend);
+        if (Data.Settings.AutobuyShardUpgs === true) {
+            buyUpg(1, "shards", spend);
+            buyUpg(2, "shards", spend);
+        }
     }
 
     if (Data.Destructions.gte(7)) {
-        buyUpg(3, "constructionPoints", ConstructionSpend);
-        buyUpg(4, "constructionPoints", ConstructionSpend);
+        if (Data.Settings.AutobuyConstructionUpgs === true) {
+            buyUpg(3, "constructionPoints", ConstructionSpend);
+            buyUpg(4, "constructionPoints", ConstructionSpend);
+        }
     }
 }
 
