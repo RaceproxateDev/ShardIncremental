@@ -203,7 +203,9 @@ function resetData() {
             let freshData = Template;
 
             fixSave(freshData, Template);
+
             Data = freshData;
+            
             save();
             // Optional: reload the page to ensure UI updates
             location.reload();
@@ -248,7 +250,7 @@ function ImportData() {
     }
 }
 
-setInterval(save, 100)
+setInterval(save, 1000)
 
 window.addEventListener("load", () => {
     load()
