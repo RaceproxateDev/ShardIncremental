@@ -74,6 +74,7 @@ var Data = {
 
     Unlocks: [],
     Upgrades: [],
+    Settings: {},
 }
 
 var Template = {
@@ -152,6 +153,7 @@ var Template = {
 
     Unlocks: [],
     Upgrades: [],
+    Settings: {},
 }
 
 function save() {
@@ -160,12 +162,18 @@ function save() {
 
 function fixSave(data, template) {
     for (let key in template) {
-        if (data[key] === undefined) {
+        if (template[key] === undefined) {
             data[key] = template[key]
-        } else if (template[key] instanceof OmegaNum) {
+        }
+
+        if (template[key] instanceof OmegaNum) {
             data[key] = new OmegaNum(data[key])
-        } else if (typeof template[key] === "object") {
-            fixSave(data[key], template[key])
+        } else {
+            data[key] = data[key]
+        }
+
+        if (typeof template[key] === 'object' && template[key] !== null) {
+            fixSave(data[key], template[key]);
         }
     }
 }
