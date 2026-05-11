@@ -209,6 +209,43 @@ function resetData() {
     }
 }
 
+function exportData() {
+    try {
+        const data = localStorage.getItem("contentData")
+
+        if (!data) {
+            alert("No save Data found")
+            return;
+        }
+
+        navigator.clipboard.writeText(data).then(() => {
+            alert("Exported to Clipboard")
+        });
+    } catch (err) {
+        alert("Invalid Export, Export Failed")
+    }
+}
+
+function ImportData() {
+    let inp = prompt("Paste your save here:")
+    if (!inp) return;
+
+    try {
+        let decoded = decodeURIComponent(escape(atob(inp)));
+        let parsed = JSON.parse(decoded);
+
+        fixSave(parsed, Template)
+
+        Data = parsed;
+        save();
+
+        location.reload();
+    } catch (err) {
+        alert("Invalid Save Data!")
+        console.error(err);
+    }
+}
+
 setInterval(save, 100)
 
 window.addEventListener("load", () => {
