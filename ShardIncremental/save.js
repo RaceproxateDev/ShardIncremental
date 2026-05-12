@@ -171,7 +171,7 @@ function save() {
 }
 
 function fixSave(data, template) {
-    if (data === null || data === undefined) return template;
+    if (data === null || data === undefined) return JSON.parse(JSON.stringify(template));
 
     for (let key in template) {
         if (data[key] === undefined) {
