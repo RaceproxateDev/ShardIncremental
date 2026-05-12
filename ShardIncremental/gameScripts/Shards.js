@@ -6,7 +6,7 @@ let shardUpg2LvlTxt = document.getElementById("ShardBuyable2LvlTxt")
 let buyShardUpg2Btn = document.getElementById("ShardBuyable2Btn")
 
 function updateShardTxt() {
-    shardTxt.innerHTML = `You have <b>${format(Data.shards)}</b> ${OmegaNum.eq(Data.shards, 1) ? "shard" : "shards"}`
+    shardTxt.innerHTML = `You have <b>${format(Data.shards)}</b> ${OmegaNum.eq(Data.shards, 1) ? "shard" : "shards"} [+<b>${format(Data.shardMult)}</b>/s]`
     shardUpg1LvlTxt.innerHTML = `Level: <b>${format(Data.Buyables[1].amount)}</b> / <b>${format(Data.Buyables[1].max)}</b>`
     buyShardUpg1Btn.innerHTML = `Cost: <b>${format(Data.Buyables[1].price)}</b> shards`
     shardUpg2LvlTxt.innerHTML = `Level: <b>${format(Data.Buyables[2].amount)}</b> / <b>${format(Data.Buyables[2].max)}</b>`
