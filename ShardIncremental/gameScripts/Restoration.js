@@ -97,6 +97,7 @@ function CalcRestorationMult() {
     if (Data.Points.gte(1)) mult = mult.mul(2);
     if (Data.Points.gte(2)) mult = mult.mul(2.5);
     if (Data.Points.gte(5)) mult = mult.mul(2);
+    if (Data.Points.gte(6)) mult = mult.mul(5);
 
     Data.RestorationMult = mult;
     return mult;
