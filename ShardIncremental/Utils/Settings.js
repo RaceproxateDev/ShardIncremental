@@ -1,16 +1,17 @@
-let CheckBoxes = document.getElementsByClassName("SettingsCheck")
+let shardCheckbox = document.getElementById("ShardAutobuyCheck")
+let constructionCheckbox = document.getElementById("ConstructionAutobuyCheck")
 
-function CheckOrUncheck(bool, checkbox) {
-    Data.Settings[bool] = !Data.Settings[bool]
+// Its text
+let shardCheckboxTxt = document.getElementById("ShardAutobuyCheckTxt")
+let constructionCheckboxTxt = document.getElementById("constructionAutobuyCheckTxt")
 
-    if (Data.Settings[bool] === true) {
-        CheckBoxes[checkbox].textContent = "X"
-    } else {
-        CheckBoxes[checkbox].textContent = ""
-    }
+function UpdateSettingsGUI() {
+    shardCheckboxTxt.textContent = (Data.Settings.AutobuyShardUpgs === true) ? "X" : ""
+    constructionCheckboxTxt.textContent = (Data.Settings.AutobuyConstructionUpgs === true) ? "X" : ""
 }
 
-setInterval(() => {
-    CheckBoxes[0].textContent = (Data.Settings.AutobuyShardUpgs === true) ? "X" : ""
-    CheckBoxes[1].textContent = (Data.Settings.AutobuyConstructionUpgs === true) ? "X" : ""
-}, 100)
+function EnableDisable(bool) {
+    Data.Settings[bool] = !Data.Settings[bool]
+}
+
+setInterval(UpdateSettingsGUI, 100)
