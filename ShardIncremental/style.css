@@ -4,6 +4,9 @@ body {
     background-color: #282828;
     font-family: "Montserrat", sans-serif;
     color: white;
+    height: auto;
+    width: auto;
+    font-size: auto;
 }
 
 button {
@@ -138,4 +141,12 @@ button {
     border: 1px solid white;
     color: white;
     position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: auto;
+        height: auto;
+        width: auto;
+    }
 }
