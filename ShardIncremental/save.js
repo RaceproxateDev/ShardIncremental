@@ -174,7 +174,7 @@ function fixSave(data, template) {
     if (data === null || data === undefined) return template;
 
     for (let key in template) {
-        if (template[key] === undefined) {
+        if (data[key] === undefined) {
             data[key] = template[key]
         }
 
