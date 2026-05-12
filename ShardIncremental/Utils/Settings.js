@@ -4,13 +4,13 @@ function CheckOrUncheck(bool, checkbox) {
     Data.Settings[bool] = !Data.Settings[bool]
 
     if (Data.Settings[bool] === true) {
-        CheckBoxes[checkbox].innerHTML = "X"
+        CheckBoxes[checkbox].textContent = "X"
     } else {
-        CheckBoxes[checkbox].innerHTML = ""
+        CheckBoxes[checkbox].textContent = ""
     }
 }
 
 setInterval(() => {
-    CheckBoxes[0].innerHTML = (Data.Settings.AutobuyShardUpgs === true) ? "X" : ""
-    CheckBoxes[1].innerHTML = (Data.Settings.AutobuyConstructionUpgs === true) ? "X" : ""
+    CheckBoxes[0].textContent = (Data.Settings.AutobuyShardUpgs === true) ? "X" : ""
+    CheckBoxes[1].textContent = (Data.Settings.AutobuyConstructionUpgs === true) ? "X" : ""
 }, 100)
