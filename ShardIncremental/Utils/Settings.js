@@ -6,8 +6,8 @@ let shardCheckboxTxt = document.getElementById("ShardAutobuyCheckTxt")
 let constructionCheckboxTxt = document.getElementById("constructionAutobuyCheckTxt")
 
 function UpdateSettingsGUI() {
-    shardCheckboxTxt.textContent = (Data.Settings.AutobuyShardUpgs === true) ? "X" : ""
-    constructionCheckboxTxt.textContent = (Data.Settings.AutobuyConstructionUpgs === true) ? "X" : ""
+    shardCheckboxTxt.textContent = (Data.Settings.AutobuyShardUpgs === true) ? "ON" : "OFF"
+    constructionCheckboxTxt.textContent = (Data.Settings.AutobuyConstructionUpgs === true) ? "ON" : "OFF"
 }
 
 function EnableDisable(bool) {
