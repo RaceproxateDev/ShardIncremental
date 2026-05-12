@@ -7,6 +7,7 @@ let BuildMilestone2 = document.getElementById("BuildMilestone2");
 let BuildMilestone3 = document.getElementById("BuildMilestone3");
 let BuildMilestone4 = document.getElementById("BuildMilestone4");
 let BuildMilestone5 = document.getElementById("BuildMilestone5");
+let BuildMilestone6 = document.getElementById("BuildMilestone6");
 
 let CellDisplayTxt = document.getElementById("CellDisplayTxt");
 let CellMultTxt = document.getElementById("CellMultTxt");
@@ -43,6 +44,7 @@ function UpdateBuildDisplay() {
     BuildMilestone3.style.backgroundColor = (Data.Points.gte(4)) ? "lightgray" : "black";
     BuildMilestone4.style.backgroundColor = (Data.Points.gte(5)) ? "lightgray" : "black";
     BuildMilestone5.style.backgroundColor = (Data.Points.gte(6)) ? "lightgray" : "black";
+    BuildMilestone6.style.backgroundColor = (Data.Points.gte(7)) ? "lightgray" : "black";
 
     CellDisplayTxt.innerHTML = "You have <b>" + format(Data.Cells) + "</b> " + (Data.Cells.eq(1) ? "Cell" : "Cells");
     CellMultTxt.innerHTML = "<b>" + format(Data.CellMult) + "x</b> every <b>" + CalcSecondsToGenCell() + "</b> seconds";
@@ -121,11 +123,20 @@ function ExtendReset(force) {
     }
 }
 
+function ExtendRequerimentCalc() {
+    let req = new OmegaNum(20).times(OmegaNum.pow(Data.ExtendScale, Data.Extensions))
+    if (Data.Points.gte(7)) req = req.div(25)
+
+    Data.ExtendReq = req
+    return req
+}
+
 setInterval(function() {
     calcPointMult();
     UpdateBuildDisplay();
     CellMultCalc();
     calcCellUpgsCap();
+    ExtendRequerimentCalc();
 }, 100)
 
 setInterval(function() {
