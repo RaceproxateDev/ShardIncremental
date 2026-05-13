@@ -63,7 +63,7 @@ function UpdateBuildDisplay() {
 function BuildReset(force) {
     if (Data.RestorationPoints.gte(Data.PointReq)) {
         resetStats(13, 0);
-        resetBuyables(6, 1);
+        resetBuyables(7, 1);
 
         Data.Upgrades = Data.Upgrades.filter(upg => upg >= keepUpgs())
 
