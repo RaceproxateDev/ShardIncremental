@@ -1,5 +1,6 @@
 let ProgressBar = document.getElementById("ProgressBar1")
 let progress =  document.getElementById("GameProgress")
+let progressDiv = document.getElementById("Progress")
 
 let GameRequeriments = {
     construct: new OmegaNum(1000), // shards
@@ -39,7 +40,8 @@ function UpdateProgress() {
         let req = GameRequeriments.restore
         let percent = Data.Destructions.div(req).times(100)
 
-        progress.textContent = `Get 15 Destructions [${format(percent)} %]`
+        progressDiv.style.borderColor = "red"
+        progress.innerHTML = `<h3 style="color: red;">Get 15 Destructions [${format(percent)} %]</h3>`
         ProgressBar.value = percent.toNumber()
 
         GrantStep("restore", "Destructions")
@@ -48,7 +50,8 @@ function UpdateProgress() {
         let req = GameRequeriments.build
         let percent = Data.RestorationPoints.div(req).times(100)
 
-        progress.textContent = `Get 50 Restoration Points [${format(percent)} %]`
+        progressDiv.style.borderColor = "rgb(168, 168, 246)"
+        progress.innerHTML = `<h3 style="color: rgb(168, 168, 246)">Get 50 Restoration Points [${format(percent)} %]</h3>`
         ProgressBar.value = percent.toNumber()
 
         GrantStep("build", "RestorationPoints")
