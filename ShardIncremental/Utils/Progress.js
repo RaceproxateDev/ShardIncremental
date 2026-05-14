@@ -19,9 +19,11 @@ function GrantStep(requeriment, currency) {
 function UpdateProgress() {
     if (Data.GameProgress.eq(0)) {
         let req = GameRequeriments.construct
-        
-        ProgressBar.value = Data.shards.toNumber() / req.toNumber() * 100
-        progress.textContent = `Get 1,000 shards [${Math.floor(Data.shards.toNumber() / req.toNumber() * 100)} %]`
+        let percent = Data.shards.div(req).times(100).floor()
+
+        progress.textContent = `Get 1,000 shards [${format(percent)} %]`
+        ProgressBar.value = percent.toNumber()
+       
 
         GrantStep("construct", "shards")
     } else if (Data.GameProgress.eq(1)) {
