@@ -174,18 +174,14 @@ button {
     background-image: linear-gradient(green, chartreuse, green);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
     body {
-        font-size: 30%;
-        height: 30%;
-        width: 30%;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-    body {
-        font-size: 20%;
-        height: 20%;
-        width: 20%;
+        font-size: clamp(14px, 1.5vw, 16px); /* Scales between 14px and 16px */
+        line-height: 1.5;                    /* Good readability */
+        width: 90%;                           /* Flexible width */
+        max-width: 1100px;                    /* Prevents overly wide text */
+        min-width: 300px;                     /* Avoids breaking on very small screens */
+        margin: 0 auto;                       /* Centers content */
+        height: auto;                         /* Let content define height */
     }
 }
