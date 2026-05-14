@@ -30,7 +30,7 @@ function UpdateProgress() {
         let req = GameRequeriments.destruct
         let percent = Data.constructionPoints.div(req).times(100)
 
-        progress.textContent = `Get 20 construction Points [${format(percent)} %]`
+        progress.textContent = `Get 10 construction Points [${format(percent)} %]`
         ProgressBar.value = percent.toNumber()
 
         GrantStep("destruct", "constructionPoints")
