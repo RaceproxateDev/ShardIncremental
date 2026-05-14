@@ -56,6 +56,10 @@ function UpdateProgress() {
 
         GrantStep("build", "RestorationPoints")
     }
+
+    else {
+        progressDiv.style.display = "none"
+    }
 }
 
 setInterval(() => {
