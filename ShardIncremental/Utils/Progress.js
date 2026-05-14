@@ -29,6 +29,8 @@ function UpdateProgress() {
 
         ProgressBar.value = Data.constructionPoints.div(req).times(100)
         progress.textContent = `Get 20 construction Points [${Data.constructionPoints.div(req).times(100).floor()} %]`
+
+        GrantStep("destruct", "constructionPoints")
     }
 }
 
