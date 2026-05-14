@@ -80,6 +80,8 @@ var Data = {
         AutobuyShardUpgs: true,
         AutobuyConstructionUpgs: true,
     },
+
+    GameProgress: new OmegaNum(0),
 }
 
 var Template = {
@@ -162,6 +164,8 @@ var Template = {
         AutobuyShardUpgs: true,
         AutobuyConstructionUpgs: true,
     },
+
+    GameProgress: new OmegaNum(0),
 }
 
 function save() {
@@ -179,11 +183,15 @@ function fixSave(data, template) {
         }
 
         else if (template[key] instanceof OmegaNum) {
-            data[key] = new OmegaNum(data[key] || template[key])
+            data[key] = new OmegaNum(data[key] ?? template[key])
         }
 
         else if (typeof template[key] === 'object' && template[key] !== null) {
-            data[key] = fixSave(data[key], template[key]);
+            if (typeof data[key] !== 'object' || data[key] === null) {
+                data[key] = JSON.parse(JSON.stringify(template[key]));
+            } else {
+                fixSave(data[key], template[key]);
+            }
         }
     }
 

@@ -143,6 +143,24 @@ button {
     position: static;
 }
 
+#Progress {
+    border: 1px solid white;
+    background-color: black;
+    position: absolute;
+    top: 10px;
+    left: 1270px;
+    width: 500px;
+    height: auto;
+    text-align: center;
+}
+
+.ProgressBar {
+    border: 1px solid white;
+    border-radius: 5px;
+    position: static;
+    
+}
+
 @media only screen and (max-width: 600px) {
     body {
         font-size: auto;

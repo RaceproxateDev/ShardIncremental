@@ -15,7 +15,14 @@
             <button class="ExportDataBtn" onclick="exportData()">Export Data</button>
             <button class="ImportDataBtn" onclick="ImportData()">Import Data</button>
             <br><br>
-        </div> <br>
+        </div>
+
+        <div id="Progress">
+            <h3>Progress</h3>
+            <h3 id="GameProgress">Get 1,000 Shards [0%]</h3>
+            <progress class="ProgressBar" id="ProgressBar1" max="100" value="0" style="background-color: black; width: 100%; height: 30px;"></progress>
+
+        </div><br>
 
         <div id="content1">
             <h3 id="shardDisplayTxt">You have <b>0</b> shards</h3>
@@ -292,4 +299,5 @@
     <script src="ShardIncremental/gameScripts/Build.js"></script>
     <script src="ShardIncremental/gameScripts/UnlockContent.js"></script>
     <script src="ShardIncremental/Utils/Settings.js"></script>
+    <script src="ShardIncremental/Utils/Progress.js"></script>
 </html>
