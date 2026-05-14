@@ -31,7 +31,7 @@ let RestorationUpgTree6CostTxt = document.getElementById("RestorationUpgTree6Cos
 function UpdateRestorationDisplay() {
     RestorationDisplayTxt.innerHTML = "You have <b>" + format(Data.RestorationPoints) + "</b>" + (Data.RestorationPoints.eq(1) ? " Restoration Point" : " Restoration Points");
     CalcRestorationGainTxt.innerHTML = "You will gain <b>" + format(Data.RestorationStorage) + "</b>" + (Data.RestorationStorage.eq(1) ? " Restoration Point" : " Restoration Points");
-    RestorationBtn.innerHTML = (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(8000)) ? "Restore" : "Get atleast 15 Destructions and 8,000 Construction Energy";
+    RestorationBtn.innerHTML = (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(5000)) ? "Restore" : "Get atleast 15 Destructions and 5,000 Construction Energy";
 
     RestorationBuyable1LvlTxt.innerHTML = `Level: <b>${format(Data.Buyables[5].amount)}</b> / <b>${format(Data.Buyables[5].max)}</b>`
     RestorationBuyable1Btn.innerHTML = "Cost: <b>" + format(Data.Buyables[5].price) + "</b> Restoration Points"
@@ -71,11 +71,11 @@ function CalcRestorationGain() {
     if (Data.Points.gte(1)) exp = exp + 0.1;
     if (Data.Points.gte(1)) exp2 = exp2 + 0.1;
 
-    Data.RestorationStorage = Data.Destructions.div(15).pow(exp).mul(Data.ConstructionEnergy.div(8000).pow(exp2)).times(Data.RestorationMult);
+    Data.RestorationStorage = Data.Destructions.div(15).pow(exp).mul(Data.ConstructionEnergy.div(5000).pow(exp2)).times(Data.RestorationMult);
 }
 
 function RestorationReset(force) {
-    if (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(8000)) {
+    if (Data.Destructions.gte(15) && Data.ConstructionEnergy.gte(5000)) {
         resetStats(10, 0);
         resetBuyables(5, 1);
 

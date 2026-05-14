@@ -55,6 +55,16 @@ function UpdateProgress() {
         ProgressBarSettings.value = percent.toNumber()
 
         GrantStep("build", "RestorationPoints")
+
+    } else if (Data.GameProgress.eq(4)) {
+        let req = GameRequeriments.CellsContent
+        let percent = Data.Points.div(req).times(100)
+
+        progressDiv.style.borderColor = "darkgreen"
+        progress.innerHTML = `<h3 style="color: darkgreen;">Get 4 Points [${format(percent)} %]</h3>`
+        ProgressBarSettings.value = percent.toNumber()
+
+        GrantStep("CellsContent")
     }
 }
 
