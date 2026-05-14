@@ -35,7 +35,7 @@ function UpdateProgress() {
 
         GrantStep("destruct", "constructionPoints")
 
-    }  else if (Data.GameProgress.eq(2)) {
+    } else if (Data.GameProgress.eq(2)) {
         let req = GameRequeriments.restore
         let percent = Data.Destructions.div(req).times(100)
 
