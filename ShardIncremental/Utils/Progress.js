@@ -24,6 +24,11 @@ function UpdateProgress() {
         progress.textContent = `Get 1,000 shards [${Math.floor(Data.shards.toNumber() / req.toNumber() * 100)} %]`
 
         GrantStep("construct", "shards")
+    } else if (Data.GameProgress.eq(1)) {
+        let req = GameRequeriments.destruct
+
+        ProgressBar.value = Data.constructionPoints.div(req).times(100)
+        progress.textContent = `Get 20 construction Points [${Data.constructionPoints.div(req).times(100).floor()} %]`
     }
 }
 
