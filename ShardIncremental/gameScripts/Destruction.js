@@ -20,6 +20,10 @@ let DestructionMilestone10 = document.getElementById("DestructionMilestone10");
 let DestructionMilestone11 = document.getElementById("DestructionMilestone11");
 let DestructionMilestone12 = document.getElementById("DestructionMilestone12");
 
+// automation Options
+let ShardAutomationOption = document.getElementById("ShardAutomationOption");
+let ConstructionAutomationOption = document.getElementById("ConstructionAutomationOption");
+
 function calcDestructionBulk() {
     let bulk = new OmegaNum(1);
     if (Data.Upgrades.includes(5)) bulk = bulk.mul(2);
@@ -67,6 +71,10 @@ function updateHtmlDestruction() {
     DestructionMilestone10.style.backgroundColor = (Data.Destructions.gte(11)) ? "green" : "black";
     DestructionMilestone11.style.backgroundColor = (Data.Destructions.gte(15)) ? "green" : "black";
     DestructionMilestone12.style.backgroundColor = (Data.Destructions.gte(60)) ? "green" : "black";
+
+    // automation Options
+    ShardAutomationOption.style.display = (Data.Destructions.gte(4)) ? "block" : "none"
+    ConstructionAutomationOption.style.display = (Data.Destructions.gte(7)) ? "block" : "none"
 }
 
 function Autobuy() {
