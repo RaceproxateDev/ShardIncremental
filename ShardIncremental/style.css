@@ -160,10 +160,10 @@ button {
     appearance: none;
 }
 
+/* Progress Bars */
 #ProgressBarSettings::-webkit-progress-bar {
     background-color: black;
 }
-
 #ProgressBarSettings::-moz-progress-bar {
     background-color: black;
 }
