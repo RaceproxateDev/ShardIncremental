@@ -24,13 +24,14 @@ function UpdateProgress() {
         progress.textContent = `Get 1,000 shards [${format(percent)} %]`
         ProgressBar.value = percent.toNumber()
        
-
         GrantStep("construct", "shards")
+
     } else if (Data.GameProgress.eq(1)) {
         let req = GameRequeriments.destruct
+        let percent = Data.constructionPoints.div(req).times(100)
 
-        ProgressBar.value = Data.constructionPoints.div(req).times(100)
-        progress.textContent = `Get 20 construction Points [${Data.constructionPoints.div(req).times(100).floor()} %]`
+        progress.textContent = `Get 20 construction Points [${format(percent)} %]`
+        ProgressBar.value = percent.toNumber()
 
         GrantStep("destruct", "constructionPoints")
     }
