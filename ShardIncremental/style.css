@@ -176,16 +176,16 @@ button {
 
 @media only screen and (max-width: 600px) {
     body {
-        font-size: auto;
-        height: auto;
-        width: auto;
+        font-size: 30%;
+        height: 30%;
+        width: 30%;
     }
 }
 
 @media only screen and (max-width: 400px) {
     body {
-        font-size: auto;
-        height: auto;
-        width: auto;
+        font-size: 20%;
+        height: 20%;
+        width: 20%;
     }
 }
