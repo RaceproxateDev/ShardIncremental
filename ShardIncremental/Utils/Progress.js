@@ -39,7 +39,7 @@ function UpdateProgress() {
         let req = GameRequeriments.restore
         let percent = Data.Destructions.div(req).times(100)
 
-        progress.textContent = `Get 20 construction Points [${format(percent)} %]`
+        progress.textContent = `Get 15 Destructions [${format(percent)} %]`
         ProgressBar.value = percent.toNumber()
 
         GrantStep("restore", "Destructions")
