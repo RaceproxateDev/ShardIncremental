@@ -43,6 +43,15 @@ function UpdateProgress() {
         ProgressBar.value = percent.toNumber()
 
         GrantStep("restore", "Destructions")
+
+    } else if (Data.GameProgress.eq(3)) {
+        let req = GameRequeriments.build
+        let percent = Data.RestorationPoints.div(req).times(100)
+
+        progress.textContent = `Get 50 Restoration Points [${format(percent)} %]`
+        ProgressBar.value = percent.toNumber()
+
+        GrantStep("build", "RestorationPoints")
     }
 }
 
