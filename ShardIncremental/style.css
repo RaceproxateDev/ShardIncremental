@@ -167,6 +167,12 @@ button {
 #ProgressBarSettings::-moz-progress-bar {
     background-color: black;
 }
+#ProgressBarSettings::-webkit-progress-value {
+    background-image: linear-gradient(green, chartreuse, green);
+}
+#ProgressBarSettings::-moz-progress-value {
+    background-image: linear-gradient(green, chartreuse, green);
+}
 
 @media only screen and (max-width: 600px) {
     body {
