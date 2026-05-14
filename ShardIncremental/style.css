@@ -181,3 +181,11 @@ button {
         width: auto;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    body {
+        font-size: auto;
+        height: auto;
+        width: auto;
+    }
+}
