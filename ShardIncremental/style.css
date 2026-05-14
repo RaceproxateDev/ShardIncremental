@@ -155,13 +155,17 @@ button {
 }
 
 .ProgressBar {
-    border: 1px solid white;
-    border-radius: 5px;
+    border: 2px solid white;
     position: static;
+    appearance: none;
 }
 
-#ProgressBarSettings {
-    appearance: none;
+#ProgressBarSettings::-webkit-progress-bar {
+    background-color: black;
+}
+
+#ProgressBarSettings::-moz-progress-bar {
+    background-color: black;
 }
 
 @media only screen and (max-width: 600px) {
