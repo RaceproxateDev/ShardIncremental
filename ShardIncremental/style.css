@@ -184,4 +184,9 @@ button {
         margin: 0 auto;
         height: auto;
     }
+
+    #Progress, .ProgressBar {
+        width: 80%;
+        height: 80%;
+    }
 }
