@@ -176,12 +176,12 @@ button {
 
 @media only screen and (max-width: 1200px) {
     body {
-        font-size: clamp(14px, 1.5vw, 16px); /* Scales between 14px and 16px */
-        line-height: 1.5;                    /* Good readability */
-        width: 90%;                           /* Flexible width */
-        max-width: 1100px;                    /* Prevents overly wide text */
-        min-width: 300px;                     /* Avoids breaking on very small screens */
-        margin: 0 auto;                       /* Centers content */
-        height: auto;                         /* Let content define height */
+        font-size: clamp(14px, 1.5vw, 16px);
+        line-height: 1.5;
+        width: 90%;
+        max-width: 1100px;
+        min-width: 300px;
+        margin: 0 auto;
+        height: auto;
     }
 }
